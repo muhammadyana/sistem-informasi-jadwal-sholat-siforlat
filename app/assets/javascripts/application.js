@@ -20,6 +20,7 @@
 //= require nprogress-turbolinks
 //= require black-dashboard.min
 //= require notie.min
+//= require PrayTimes
 
 
 
