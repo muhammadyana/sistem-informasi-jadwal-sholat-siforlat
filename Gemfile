@@ -55,6 +55,7 @@ gem 'nprogress-rails'
 gem 'slim-rails'
 gem 'popper_js', '~> 1.14.3'
 gem 'simple_form'
+gem 'momentjs-rails'
 
 # Image processing
 gem 'carrierwave'
