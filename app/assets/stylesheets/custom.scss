@@ -1,0 +1,14 @@
+$nprogress-color: #BB54F5;
+$nprogress-height: 6px;
+$nprogress-zindex: 10100;
+$theme-colors: ( "bootstrap": #bd56a0, "simpleform": #00617f );
+
+@import "bootstrap";
+@import "font-awesome";
+// @import "summernote";
+// @import "codemirror";
+// @import "codemirror/themes/solarized";
+
+
+@import 'nprogress';
+@import 'nprogress-bootstrap';

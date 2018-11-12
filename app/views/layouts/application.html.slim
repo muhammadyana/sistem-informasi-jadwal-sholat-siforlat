@@ -20,33 +20,69 @@ html lang="en"
     = javascript_include_tag "application"
 
   body
-    nav.navbar.navbar-default.navbar-fixed-top role="navigation"
-      .container
-        .navbar-header
-          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand href="#" Siforlat
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          ul.nav.navbar-nav
-            li.active= link_to "Link 1", "#"
-            li= link_to "Link 2", "#"
-            li= link_to "Link 3", "#"
-
-    .container
-      .row
-        .col-md-9
-          = bootstrap_flash
-          = yield
-        .col-md-3
-          .well.sidebar-nav
-            h3 Sidebar
-            ul.nav.nav-list
-              li.nav-header Sidebar
-              li= link_to "Link 1", "#"
-              li= link_to "Link 2", "#"
-              li= link_to "Link 3", "#"
-
-      footer
-        p &copy; Company 2018
+    .wrapper
+      .sidebar data="green"
+        .sidebar-wrapper
+          .logo
+            a.simple-text.logo-mini href="javascript:void(0)" 
+              | CT
+            a.simple-text.logo-normal href="javascript:void(0)" 
+              | Creative Tim
+          ul.nav
+            li.active
+              a href="./dashboard.html" 
+                i.tim-icons.icon-chart-pie-36
+                p Dashboard
+            li
+              a href="./icons.html" 
+                i.tim-icons.icon-atom
+                p Icons
+            li
+              a href="./map.html" 
+                i.tim-icons.icon-pin
+                p Maps
+            li
+              a href="./notifications.html" 
+                i.tim-icons.icon-bell-55
+                p Notifications
+            li
+              a href="./user.html" 
+                i.tim-icons.icon-single-02
+                p User Profile
+            li
+              a href="./tables.html" 
+                i.tim-icons.icon-puzzle-10
+                p Table List
+            li
+              a href="./typography.html" 
+                i.tim-icons.icon-align-center
+                p Typography
+            li
+              a href="./rtl.html" 
+                i.tim-icons.icon-world
+                p RTL Support
+            li.active-pro
+              a href="./upgrade.html" 
+                i.tim-icons.icon-spaceship
+                p Upgrade to PRO
+      .main-panel
+        nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent
+          .container-fluid
+            .navbar-wrapper
+              .navbar-toggle.d-inline
+                button.navbar-toggler type="button" 
+                  span.navbar-toggler-bar.bar1
+                  span.navbar-toggler-bar.bar2
+                  span.navbar-toggler-bar.bar3
+              a.navbar-brand href="javascript:void(0)"  Dashboard
+            button.navbar-toggler aria-expanded="false" aria-label=("Toggle navigation") data-target="#navigation" data-toggle="collapse" type="button" 
+              span.navbar-toggler-bar.navbar-kebab
+              span.navbar-toggler-bar.navbar-kebab
+              span.navbar-toggler-bar.navbar-kebab
+            #navigation.collapse.navbar-collapse
+              ul.navbar-nav.ml-auto
+                li.search-bar.input-group
+                  /button#search-button.btn.btn-link data-target="#searchModal" data-toggle="modal" 
+                    i.tim-icons.icon-zoom-split
+                    span.d-lg-none.d-md-block Search
+                
