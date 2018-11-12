@@ -19,6 +19,7 @@
  *= require nprogress-turbolinks5
  *= require custom
  *= require notie
- *= require black-dashboard-sass
+ *= require black-dashboard
  *= require nucleo-icons
+ *= require flipclock
  */

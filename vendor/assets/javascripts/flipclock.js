@@ -197,13 +197,13 @@ var FlipClock;
 		 * Build Date
 		 */
 		 
-		buildDate: '2014-12-12',
+		buildDate: '2014-10-06',
 		
 		/**
 		 * Version
 		 */
 		 
-		version: '0.7.7',
+		version: '0.7.5',
 		
 		/**
 		 * Sets the default options
@@ -447,7 +447,7 @@ var FlipClock;
 
 		reset: function() {
 			this.factory.time = new FlipClock.Time(
-				this.factory, 
+				this.factor, 
 				this.factory.original ? Math.round(this.factory.original) : 0,
 				{
 					minimumDigits: this.factory.minimumDigits
@@ -2478,25 +2478,25 @@ var FlipClock;
 
 }(jQuery));
 (function($) {
-
+		
 	/**
 	 * FlipClock Spanish Language Pack
 	 *
 	 * This class will used to translate tokens into the Spanish language.
-	 *
+	 *	
 	 */
-
+	 
 	FlipClock.Lang.Spanish = {
-
-		'years'   : 'Años',
+		
+		'years'   : 'A&#241;os',
 		'months'  : 'Meses',
-		'days'    : 'Días',
+		'days'    : 'D&#237;as',
 		'hours'   : 'Horas',
 		'minutes' : 'Minutos',
-		'seconds' : 'Segundos'
+		'seconds' : 'Segundo'	
 
 	};
-
+	
 	/* Create various aliases for convenience */
 
 	FlipClock.Lang['es']      = FlipClock.Lang.Spanish;
@@ -2750,33 +2750,5 @@ var FlipClock;
 	FlipClock.Lang['sv']      = FlipClock.Lang.Swedish;
 	FlipClock.Lang['sv-se']   = FlipClock.Lang.Swedish;
 	FlipClock.Lang['swedish'] = FlipClock.Lang.Swedish;
-
-}(jQuery));
-
-(function($) {
-		
-	/**
-	 * FlipClock Chinese Language Pack
-	 *
-	 * This class will used to translate tokens into the Chinese language.
-	 *	
-	 */
-	 
-	FlipClock.Lang.Chinese = {
-		
-		'years'   : '年',
-		'months'  : '月',
-		'days'    : '日',
-		'hours'   : '时',
-		'minutes' : '分',
-		'seconds' : '秒'
-
-	};
-	
-	/* Create various aliases for convenience */
-
-	FlipClock.Lang['zh']      = FlipClock.Lang.Chinese;
-	FlipClock.Lang['zh-cn']   = FlipClock.Lang.Chinese;
-	FlipClock.Lang['chinese'] = FlipClock.Lang.Chinese;
 
 }(jQuery));

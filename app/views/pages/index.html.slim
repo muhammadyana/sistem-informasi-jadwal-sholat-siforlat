@@ -1,2 +1,49 @@
 h1 Pages#index
 p Find me in app/views/pages/index.html.slim
+.clock
+.subuh
+.fajar
+.dzuhur
+.ashar
+.magrib
+.isya
+
+- content_for :js_plugin
+	javascript:
+		var getJadwal = function(when){
+			prayTimes.setMethod('Karachi');
+			// mendapatkan moment object pada hari ini
+			var toDay = moment();
+			if (when == 'tomorrow') {
+				// jika besok maka tambah satu hari
+				date = toDay.add('1', 'days');
+			} else {
+				// hari ini
+				date = toDay;
+			}
+			// date.toDate() = convert ke javascript Date()
+			// var lat = -6.9174639;
+			// tes pake php bisa apa engga
+			// klo ga bisa teing kumaha
+			// var lon = '<?PHP echo "107.20" ?>';
+			var lat = -6.300017; 
+			var lon = 106.670173;
+			// var lat = <?PHP echo $dataMosque->lat; ?>;
+			// var lon = <?PHP echo $dataMosque->lng; ?>;
+			//console.log(lon);
+			return prayTimes.getTimes(date.toDate(), [lat, lon], +7);
+		};
+		$(document).ready(function() {
+			var jadwalSekarang = getJadwal();
+	    console.log(jadwalSekarang);
+			$('.clock').FlipClock({
+				clockFace: 'TwentyFourHourClock'
+			});
+			$('.subuh').html(jadwalSekarang.fajr);
+			$('.fajar').html(jadwalSekarang.sunrise);
+			$('.dzuhur').html(jadwalSekarang.dhuhr);
+			$('.ashar').html(jadwalSekarang.asr);
+			$('.magrib').html(jadwalSekarang.maghrib);
+			$('.isya').html(jadwalSekarang.isha);
+			// var clock = $('.clock').FlipClock({});
+		});
