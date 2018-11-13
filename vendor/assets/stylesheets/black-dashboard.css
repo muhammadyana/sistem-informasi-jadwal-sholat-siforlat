@@ -19054,8 +19054,8 @@ table.tablesorter thead tr .headerSortDown {
 .card-collapse .card a[data-toggle=collapse][aria-expanded=true] i,
 .dropdown-toggle[aria-expanded=true]:after,
 a[data-toggle=collapse][aria-expanded=true] .caret {
-    filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=2);
-    transform: rotate(180deg)
+    /*filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=2);*/
+    transform: rotate(180deg);
 }
 
 .caret {
@@ -26802,7 +26802,7 @@ Copyright (c) 2015 Daniel Eden
 .card-user .author .block.block-two {
     background: rgba(225, 78, 202, .6);
     background: linear-gradient(90deg, rgba(225, 78, 202, .6) 0, rgba(225, 78, 202, 0));
-    filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=10)
+    /*filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=10);*/
 }
 
 .card-user .author .block.block-two {
@@ -26820,13 +26820,13 @@ Copyright (c) 2015 Daniel Eden
 .card-user .author .block.block-three {
     background: rgba(225, 78, 202, .6);
     background: linear-gradient(90deg, rgba(225, 78, 202, .6) 0, rgba(225, 78, 202, 0));
-    filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=10);
-    right: -45px
+    /*filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=10);*/
+    right: -45px;
 }
 
 .card-user .author .block.block-four {
     transform: rotate(150deg);
-    margin-top: -25px
+    margin-top: -25px;
 }
 
 .card-user .avatar {
