@@ -1,11 +1,18 @@
 
-.clock
-.subuh
-.fajar
-.dzuhur
-.ashar
-.magrib
-.isya
+#clock
+.row
+	.col-md-2
+		.subuh.prayer-clock
+	.col-md-2
+		.fajar.prayer-clock
+	.col-md-2
+		.dzuhur.prayer-clock
+	.col-md-2
+		.ashar.prayer-clock
+	.col-md-2
+		.magrib.prayer-clock
+	.col-md-2
+		.isya.prayer-clock
 #itung
 
 - content_for :js_plugin
@@ -111,7 +118,7 @@
 			var getScheduleFor = getJadwal();
 	    console.log(getScheduleFor);
 	    // var clock = $('.clock').FlipClock(3600);
-			$('.clock').FlipClock({
+			$('#clock').FlipClock({
 				clockFace: 'TwentyFourHourClock'
 			});
 			console.log(getScheduleFor.fajr)
