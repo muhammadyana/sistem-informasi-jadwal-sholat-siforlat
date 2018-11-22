@@ -12,7 +12,7 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+# gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
@@ -56,10 +56,19 @@ gem 'slim-rails'
 gem 'popper_js', '~> 1.14.3'
 gem 'simple_form'
 gem 'momentjs-rails'
+gem 'delayed_job_active_record', '~> 4.1.3'
+gem 'devise_token_auth'
+gem 'draper', '~> 3.0.0'
+gem 'figaro', '~> 1.1.1'
+gem 'fog-aws', '~> 2.0.0'
+gem 'oj', '~> 2.17.5'
+gem 'pry-rails', '~> 0.3.6'
+gem 'rack-cors', '~> 0.4.0'
 
 # Image processing
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'carrierwave-base64', '~> 2.3.4'
 
 
 group :development, :test do
@@ -74,6 +83,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'annotate', '~> 2.6.5'
+  gem 'better_errors', '~> 2.1.1'
+  gem 'binding_of_caller', '~> 0.7.2'
+  gem 'letter_opener', '~> 1.4.1'
+  gem 'rails_best_practices', '~> 1.19.0'
 end
 
 group :test do
@@ -82,6 +96,12 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'database_cleaner', '~> 1.4.1'
+  gem 'faker', '~> 1.7.3'
+end
+
+group :assets do
+  gem 'uglifier', '>= 1.3.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
