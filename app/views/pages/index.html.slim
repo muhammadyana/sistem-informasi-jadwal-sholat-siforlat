@@ -1,19 +1,21 @@
 
-#clock
-.row
-	.col-md-2
-		.subuh.prayer-clock
-	.col-md-2
-		.fajar.prayer-clock
-	.col-md-2
-		.dzuhur.prayer-clock
-	.col-md-2
-		.ashar.prayer-clock
-	.col-md-2
-		.magrib.prayer-clock
-	.col-md-2
-		.isya.prayer-clock
-#itung
+/ #clock
+/ .row
+/ 	.col-md-2
+/ 		.subuh.prayer-clock
+/ 	.col-md-2
+/ 		.fajar.prayer-clock
+/ 	.col-md-2
+/ 		.dzuhur.prayer-clock
+/ 	.col-md-2
+/ 		.ashar.prayer-clock
+/ 	.col-md-2
+/ 		.magrib.prayer-clock
+/ 	.col-md-2
+/ 		.isya.prayer-clock
+/ #itung
+pre
+	#jsonData
 
 - content_for :js_plugin
 	javascript:
@@ -113,7 +115,7 @@
 			return end.diff(start, 'seconds');
 
 		};
-
+		console.log(getJadwal())
 		$(document).ready(function() {
 			var getScheduleFor = getJadwal();
 	    console.log(getScheduleFor);
@@ -209,6 +211,8 @@
 					}
 				}
 			});
+			console.log(getJadwal().isha);
+			$('#jsonData').html(JSON.stringify(getJadwal()));
 			theCounter.start();
 			$('.subuh').html(getScheduleFor.fajr);
 			$('.fajar').html(getScheduleFor.sunrise);

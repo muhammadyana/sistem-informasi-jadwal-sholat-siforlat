@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Email:
+  = @user.email
+p
+  strong First name:
+  = @user.first_name
+p
+  strong Last name:
+  = @user.last_name
+p
+  strong Mobile phone:
+  = @user.mobile_phone
+p
+  strong Address:
+  = @user.address
+p
+  strong Date of birth:
+  = @user.date_of_birth
+
+=> link_to 'Edit', edit_user_path(@user)
+'|
+=< link_to 'Back', users_path
