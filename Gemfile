@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 #ADDITIONAL GEM
 gem 'active_link_to'
+gem 'activeadmin'
 gem 'awesome_print'
 gem 'bootstrap', '~> 4.1.3'
 # gem 'bootstrap-sass', '~> 3.3.7'
