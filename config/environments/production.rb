@@ -75,7 +75,7 @@ Rails.application.configure do
    :authentication       => "plain",
    :enable_starttls_auto => true
   }
-  
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -103,3 +103,4 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
+Rails.application.routes.default_url_options[:host] = 'https://siforlat.herokuapp.com'
