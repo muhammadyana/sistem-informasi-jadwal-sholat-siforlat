@@ -5,7 +5,9 @@ module Api
     class UsersController < Api::V1::ApiController
       helper_method :user
 
-      def show; end
+      def show
+        render json: {success: true}
+      end
 
       def profile
         render :show

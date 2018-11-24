@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  api:
+    errors:
+      server: 'An error ocurred'
+      not_found: "Couldn't find the record"
+      missing_param: 'A required param is missing'
+      invalid_content_type: 'Invalid content type header'
