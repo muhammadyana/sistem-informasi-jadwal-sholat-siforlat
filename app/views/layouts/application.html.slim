@@ -88,6 +88,8 @@ html lang="en"
                     span.d-lg-none.d-md-block Search
                 
         .content
+          - if user_signed_in?
+            = link_to 'Logout', logout_path, method: :delete, class: "nav-item dropdown-item"
           = yield
   - if notice
     javascript:

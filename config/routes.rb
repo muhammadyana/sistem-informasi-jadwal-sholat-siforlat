@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     :confirmations      => 'users/confirmations',
     :passwords          => 'users/passwords'
   }
+  devise_scope :user do
+    delete 'logout', to: 'devise/sessions#destroy'
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # resources :users
