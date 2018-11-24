@@ -28,31 +28,32 @@
         .card-body.px-lg-5.py-lg-5
           .text-center.text-muted.mb-4
             small Or sign in with credentials
-          form role="form" 
+          = form_for(resource, as: resource_name, :html => { class: 'form-horizontal', role: 'form' }, url: session_path(resource_name)) do |f| 
             .form-group.mb-3
               .input-group.input-group-alternative
                 .input-group-prepend
                   span.input-group-text
                     i.ni.ni-email-83
-                input.form-control placeholder="Email" type="email" /
+                = f.email_field :email, class: 'form-control', placeholder: "Email", autofocus: false
             .form-group
               .input-group.input-group-alternative
                 .input-group-prepend
                   span.input-group-text
                     i.ni.ni-lock-circle-open
-                input.form-control placeholder="Password" type="password" /
+                = f.password_field :password, class: 'form-control', placeholder: "Password", autofocus: false
             .custom-control.custom-control-alternative.custom-checkbox
-              input.custom-control-input id=(" customCheckLogin") type="checkbox" /
-              label.custom-control-label for=(" customCheckLogin") 
+              = f.check_box :remember_me, class: 'custom-control-input', as: :boolean if devise_mapping.rememberable?
+              / input.custom-control-input id=(" customCheckLogin") type="checkbox" /
+              label.custom-control-label for="user_remember_me"
                 span.text-muted Remember me
             .text-center
-              button.btn.btn-primary.my-4 type="button"  Sign in
+              = f.submit 'Sign in', class: 'btn btn-primary my-4 btn-submit', data: {loading_text: 'Signing...', disable_with: 'Please wait....'}
       .row.mt-3
         .col-6
-          a.text-light href="#" 
+          = link_to new_password_path(resource_name), class: "text-light" do
             small Forgot password?
         .col-6.text-right
-          a.text-light href="#" 
+          = link_to new_registration_path(resource_name), class: "text-light" do
             small Create new account
 
 /.col-lg-4.col-md-6.ml-auto.mr-auto
