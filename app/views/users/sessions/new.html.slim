@@ -66,40 +66,6 @@
           = link_to new_registration_path(resource_name), class: "text-light" do
             small Create new account
 
-/.col-lg-4.col-md-6.ml-auto.mr-auto
-  = form_for(resource, as: resource_name, :html => { class: 'form-horizontal', role: 'form' }, url: session_path(resource_name)) do |f|
-    .card.card-login
-      .card-header
-        / img alt="" src="https://demos.creative-tim.com/marketplace/black-dashboard-pro/assets/img/card-primary.png" /
-        h1.card-title Log in
-      .card-body
-        .input-group
-          .input-group-prepend
-            .input-group-text
-              i.tim-icons.icon-email-85
-          /= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", class: 'form-control' }
-          = f.email_field :email, class: 'form-control', placeholder: "Email", autofocus: false
-        .input-group
-          .input-group-prepend
-            .input-group-text
-              i.tim-icons.icon-lock-circle
-          /= f.input :password, required: false, input_html: { autocomplete: "current-password", class: 'form-control' }
-          = f.password_field :password, class: 'form-control', placeholder: "Password", autofocus: false
-        .input-group
-          .input-group-prepend
-            = f.label "Get Email"
-            = f.check_box :remember_me, as: :boolean if devise_mapping.rememberable?
-      .card-footer
-        = f.submit 'Sign in', class: 'btn btn-primary btn-lg btn-block mb-3 btn-submit', data: {loading_text: 'Signing...', disable_with: 'Please wait....'}
-        / .pull-left
-        /   h6
-        /     a.link.footer-link href="javascript:void(0)"  Create Account
-        / .pull-right
-        /   h6
-        /     a.link.footer-link href="javascript:void(0)"  Need Help?
-        / = render "accounts/shared/links"
-
-
 javascript:
   $('.btn-submit')
     .click(function () {
