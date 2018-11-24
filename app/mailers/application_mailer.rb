@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'SIFORLAT - Sistem Informasi Jadwal Sholat <no-reply@siforlat.com>'
   layout 'mailer'
 end
