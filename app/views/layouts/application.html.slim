@@ -89,5 +89,38 @@ html lang="en"
                 
         .content
           = yield
-
+  - if notice
+    javascript:
+      $.notify({
+        title: "Success:",
+        message: "#{notice}"
+      },{
+          // settings
+          element: 'body',
+          type: "success",
+          allow_dismiss: true,
+          delay: 10000,
+          placement: {
+            from: "top",
+            align: "right"
+          },
+        }
+      );
+  - if alert
+    javascript:
+      $.notify({
+        title: "Failed:",
+        message: "#{alert}"
+      },{
+          // settings
+          element: 'body',
+          type: "danger",
+          delay: 10000,
+          allow_dismiss: true,
+          placement: {
+            from: "top",
+            align: "right"
+          },
+        }
+      );
     = yield :js_plugin
