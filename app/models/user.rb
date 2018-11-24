@@ -8,6 +8,7 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   validates :uid, uniqueness: { scope: :provider }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 4, maximum: 30 },format: { without: /\s/ }
 
   before_validation :init_uid
 
@@ -32,5 +33,5 @@ class User < ApplicationRecord
   def init_uid
     self.uid = email if uid.blank? && provider == 'email'
   end
-  
+
 end

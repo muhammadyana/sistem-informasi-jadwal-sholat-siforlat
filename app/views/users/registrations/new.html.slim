@@ -6,6 +6,7 @@ h2
     = f.input :email, required: true, autofocus: true , input_html: { autocomplete: "email", class: 'form-control' }
     = f.input :first_name, required: true, autofocus: true , input_html: { autocomplete: "first-name", class: 'form-control' }
     = f.input :last_name, required: true, autofocus: true , input_html: { autocomplete: "last-name", class: 'form-control' }
+    = f.input :username, required: true, autofocus: true , input_html: { autocomplete: "username", class: 'form-control' }
     = f.input :mobile_phone, required: true, autofocus: true , input_html: { autocomplete: "phone", class: 'form-control' }
     = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password", class: 'form-control' }
     = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", class: 'form-control' }
