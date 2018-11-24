@@ -1,1 +1,1 @@
-web: bin/rails server -p 6947 -e production
+web: bin/rails server -p ${PORT:-3000} -e production
