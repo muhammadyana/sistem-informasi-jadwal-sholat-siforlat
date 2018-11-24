@@ -1,1 +1,1 @@
-web: rails s -p 3000
+web: bin/rails server -p 6947 -e production
