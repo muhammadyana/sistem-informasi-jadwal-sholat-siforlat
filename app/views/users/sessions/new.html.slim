@@ -1,10 +1,105 @@
-h2
-  | Log in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", class: 'form-control' }
-    = f.input :password, required: false, input_html: { autocomplete: "current-password", class: 'form-control' }
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Log in", class: "btn btn-success"
-= render "users/shared/links"
+/ h2
+/   | Log in
+/ = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+/   .form-inputs
+/     = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", class: 'form-control' }
+/     = f.input :password, required: false, input_html: { autocomplete: "current-password", class: 'form-control' }
+/     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+/   .form-actions
+/     = f.button :submit, "Log in", class: "btn btn-success"
+/ = render "users/shared/links"
+
+.container.mt--8.pb-5
+  .row.justify-content-center
+    .col-lg-5.col-md-7
+      .card.bg-secondary.shadow.border-0
+        .card-header.bg-transparent.pb-5
+          .text-muted.text-center.mt-2.mb-3
+            small Sign in with
+          .btn-wrapper.text-center
+            / a.btn.btn-neutral.btn-icon href="#" 
+              span.btn-inner--icon
+                img src="../assets/img/icons/common/github.svg" /
+              span.btn-inner--text Github
+            a.btn.btn-neutral.btn-icon href="#" 
+              span.btn-inner--icon
+                = image_tag 'google.svg'
+              span.btn-inner--text Google
+        .card-body.px-lg-5.py-lg-5
+          .text-center.text-muted.mb-4
+            small Or sign in with credentials
+          form role="form" 
+            .form-group.mb-3
+              .input-group.input-group-alternative
+                .input-group-prepend
+                  span.input-group-text
+                    i.ni.ni-email-83
+                input.form-control placeholder="Email" type="email" /
+            .form-group
+              .input-group.input-group-alternative
+                .input-group-prepend
+                  span.input-group-text
+                    i.ni.ni-lock-circle-open
+                input.form-control placeholder="Password" type="password" /
+            .custom-control.custom-control-alternative.custom-checkbox
+              input.custom-control-input id=(" customCheckLogin") type="checkbox" /
+              label.custom-control-label for=(" customCheckLogin") 
+                span.text-muted Remember me
+            .text-center
+              button.btn.btn-primary.my-4 type="button"  Sign in
+      .row.mt-3
+        .col-6
+          a.text-light href="#" 
+            small Forgot password?
+        .col-6.text-right
+          a.text-light href="#" 
+            small Create new account
+
+/.col-lg-4.col-md-6.ml-auto.mr-auto
+  = form_for(resource, as: resource_name, :html => { class: 'form-horizontal', role: 'form' }, url: session_path(resource_name)) do |f|
+    .card.card-login
+      .card-header
+        / img alt="" src="https://demos.creative-tim.com/marketplace/black-dashboard-pro/assets/img/card-primary.png" /
+        h1.card-title Log in
+      .card-body
+        .input-group
+          .input-group-prepend
+            .input-group-text
+              i.tim-icons.icon-email-85
+          /= f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", class: 'form-control' }
+          = f.email_field :email, class: 'form-control', placeholder: "Email", autofocus: false
+        .input-group
+          .input-group-prepend
+            .input-group-text
+              i.tim-icons.icon-lock-circle
+          /= f.input :password, required: false, input_html: { autocomplete: "current-password", class: 'form-control' }
+          = f.password_field :password, class: 'form-control', placeholder: "Password", autofocus: false
+        .input-group
+          .input-group-prepend
+            = f.label "Get Email"
+            = f.check_box :remember_me, as: :boolean if devise_mapping.rememberable?
+      .card-footer
+        = f.submit 'Sign in', class: 'btn btn-primary btn-lg btn-block mb-3 btn-submit', data: {loading_text: 'Signing...', disable_with: 'Please wait....'}
+        / .pull-left
+        /   h6
+        /     a.link.footer-link href="javascript:void(0)"  Create Account
+        / .pull-right
+        /   h6
+        /     a.link.footer-link href="javascript:void(0)"  Need Help?
+        / = render "accounts/shared/links"
+
+
+javascript:
+  $('.btn-submit')
+    .click(function () {
+      var btn = $(this)
+      NProgress.start();
+      // NProgress.inc(0.4);
+      // NProgress.set(0.4);
+      btn.button('loading')
+      setTimeout(function () {
+          btn.button('reset')
+      }, 3000)
+  });
+  // NProgress.done();
+  

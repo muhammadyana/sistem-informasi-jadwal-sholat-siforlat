@@ -17,9 +17,10 @@
  *= require nprogress
  *= require nprogress-bootstrap
  *= require nprogress-turbolinks5
+ *= require argon
+ *= require nucleo
  *= require custom
  *= require notie
- *= require black-dashboard
  *= require nucleo-icons
  *= require flipclock
  */

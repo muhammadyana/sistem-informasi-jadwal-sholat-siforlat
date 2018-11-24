@@ -94,36 +94,19 @@ html lang="en"
     = yield :js_plugin
   - if notice
     javascript:
-      $.notify({
-        title: "Success:",
-        message: "#{notice}"
-      },{
-          // settings
-          element: 'body',
-          type: "success",
-          allow_dismiss: true,
-          delay: 10000,
-          placement: {
-            from: "top",
-            align: "right"
-          },
-        }
-      );
+      notie.alert({
+        type: 1, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+        text: "#{notice}",
+        stay: false, // optional, default = false
+        time: 4, // optional, default = 3, minimum = 1,
+        position: 'top' // optional, default = 'top', enum: ['top', 'bottom']
+      });
   - if alert
     javascript:
-      $.notify({
-        title: "Failed:",
-        message: "#{alert}"
-      },{
-          // settings
-          element: 'body',
-          type: "danger",
-          delay: 10000,
-          allow_dismiss: true,
-          placement: {
-            from: "top",
-            align: "right"
-          },
-        }
-      );
-    
+      notie.alert({
+        type: 2, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+        text: "#{alert}",
+        stay: false, // optional, default = false
+        time: 4, // optional, default = 3, minimum = 1,
+        position: 'top' // optional, default = 'top', enum: ['top', 'bottom']
+      });

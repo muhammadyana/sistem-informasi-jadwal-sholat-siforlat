@@ -18,7 +18,7 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
-//= require black-dashboard.min
+//= require argon.min
 //= require notie.min
 //= require flipclock
 //= require moment
