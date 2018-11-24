@@ -9,11 +9,11 @@
 /     = f.button :submit, "Log in", class: "btn btn-success"
 / = render "users/shared/links"
 
-.container.mt--8.pb-5
+.container.mt--9.pb-5
   .row.justify-content-center
     .col-lg-5.col-md-7
       .card.bg-secondary.shadow.border-0
-        .card-header.bg-transparent.pb-5
+        .card-header.bg-transparent.pb-3
           .text-muted.text-center.mt-2.mb-3
             small Sign in with
           .btn-wrapper.text-center
@@ -25,7 +25,7 @@
               span.btn-inner--icon
                 = image_tag 'google.svg'
               span.btn-inner--text Google
-        .card-body.px-lg-5.py-lg-5
+        .card-body.px-lg-5.py-lg-3
           .text-center.text-muted.mb-4
             small Or sign in with credentials
           = form_for(resource, as: resource_name, :html => { class: 'form-horizontal', role: 'form' }, url: session_path(resource_name)) do |f| 
