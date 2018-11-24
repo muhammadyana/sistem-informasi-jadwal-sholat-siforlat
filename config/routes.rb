@@ -4,5 +4,23 @@ Rails.application.routes.draw do
   resources :users
   get 'pages/index'
   root 'pages#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  mount_devise_token_auth_for 'User', at: '/api/v1/users', controllers: {
+    registrations:  'api/v1/registrations',
+    sessions:  'api/v1/sessions',
+    passwords:  'api/v1/passwords'
+  }
+
+  namespace :api do
+    namespace :v1, defaults: { format: :json } do
+      devise_scope :user do
+        get :status, to: 'api#status'
+        resources :users, only: :show
+        resource :user, only: :update do
+          get :profile
+        end
+      end
+    end
+  end
+  
 end
