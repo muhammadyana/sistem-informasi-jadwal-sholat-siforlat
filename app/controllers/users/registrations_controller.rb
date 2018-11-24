@@ -10,9 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if resource.persisted? # user is created successfuly
+      Rails.logger.info("================== send confirmation email ")
+      resource.send(:generate_confirmation_token)
+      Devise::Mailer.confirmation_instructions(resource, resource.instance_variable_get(:@raw_confirmation_token)).deliver
+    else
+      Rails.logger.warn("========= oppppsss there is somethine wrong")
+    end
+  end
 
   # GET /resource/edit
   # def edit
