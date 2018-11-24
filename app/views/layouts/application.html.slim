@@ -91,6 +91,7 @@ html lang="en"
           - if user_signed_in?
             = link_to 'Logout', logout_path, method: :delete, class: "nav-item dropdown-item"
           = yield
+    = yield :js_plugin
   - if notice
     javascript:
       $.notify({
@@ -125,4 +126,4 @@ html lang="en"
           },
         }
       );
-    = yield :js_plugin
+    
