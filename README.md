@@ -16,7 +16,7 @@
 1. `rails s`
 1. Open browser `http://localhost:3000`
 
-If u have any question or want to contribute please message me in [Telegram](http://t.me/muhamamdyana "Telegram")
+If u have any question or want to contribute please message me in [Telegram](http://t.me/muhammadyana "Telegram")
 
 Thanks
 
