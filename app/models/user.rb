@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 4, maximum: 30 },format: { without: /\s/ }
 
   before_validation :init_uid
+  has_one :mosque
 
   def full_name
     return username unless first_name.present?
