@@ -1,15 +1,120 @@
-h2
-  | Sign up
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true , input_html: { autocomplete: "email", class: 'form-control' }
-    = f.input :first_name, required: true, autofocus: true , input_html: { autocomplete: "first-name", class: 'form-control' }
-    = f.input :last_name, required: true, autofocus: true , input_html: { autocomplete: "last-name", class: 'form-control' }
-    = f.input :username, required: true, autofocus: true , input_html: { autocomplete: "username", class: 'form-control' }
-    = f.input :mobile_phone, required: true, autofocus: true , input_html: { autocomplete: "phone", class: 'form-control' }
-    = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password", class: 'form-control' }
-    = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", class: 'form-control' }
-  .form-actions
-    = f.button :submit, "Sign up", class: "btn btn-success"
-= render "users/shared/links"
+/ h2
+/   | Sign up
+/ = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+/   = f.error_notification
+/   .form-inputs
+/     = f.input :email, required: true, autofocus: true , input_html: { autocomplete: "email", class: 'form-control' }
+/     = f.input :first_name, required: true, autofocus: true , input_html: { autocomplete: "first-name", class: 'form-control' }
+/     = f.input :last_name, required: true, autofocus: true , input_html: { autocomplete: "last-name", class: 'form-control' }
+/     = f.input :username, required: true, autofocus: true , input_html: { autocomplete: "username", class: 'form-control' }
+/     = f.input :mobile_phone, required: true, autofocus: true , input_html: { autocomplete: "phone", class: 'form-control' }
+/     = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password", class: 'form-control' }
+/     = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password", class: 'form-control' }
+/   .form-actions
+/     = f.button :submit, "Sign up", class: "btn btn-success"
+/ = render "users/shared/links"
+
+.header.bg-gradient-success.py-8
+  .container
+    .header-body.text-center.mb-7
+      .row.justify-content-center
+        .col-lg-5.col-md-6
+          h1.text-white Welcome!
+          p.text-lead.text-white Use these awesome forms to login or create new account in your project for free.
+  .separator.separator-bottom.separator-skew.zindex-100
+    svg preserveaspectratio="none" version="1.1" viewbox=("0 0 2560 100") x="0" xmlns="http://www.w3.org/2000/svg" y="0" 
+      polygon.fill-default points=("2560 0 2560 100 0 100") 
+.container.mt--9.pb-5
+  .row.justify-content-center
+    .col-lg-8.col-md-8
+      .card.bg-secondary.shadow.border-0
+        .card-header.bg-transparent.pb-3
+          .text-muted.text-center.mt-2.mb-3
+            small Sign in with
+          .btn-wrapper.text-center
+            / a.btn.btn-neutral.btn-icon href="#" 
+              span.btn-inner--icon
+                img src="../assets/img/icons/common/github.svg" /
+              span.btn-inner--text Github
+            a.btn.btn-neutral.btn-icon href="#" 
+              span.btn-inner--icon
+                = image_tag 'google.svg'
+              span.btn-inner--text Google
+        .card-body.px-lg-5.py-lg-4
+          .text-center.text-muted.mb-4
+            small Or sign in with credentials
+          = form_for(resource, as: resource_name, :html => { class: 'form', role: 'form' }, url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
+            .row
+              .col-md-6
+                .form-group.mb-3
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-email-83
+                    = f.email_field :email, class: 'form-control', placeholder: "Email", autofocus: false
+                .form-group.mb-3
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-email-83
+                    = f.text_field :first_name, class: 'form-control', placeholder: "First Name", autofocus: false
+                .form-group.mb-3
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-email-83
+                    = f.text_field :last_name, class: 'form-control', placeholder: "Last Name", autofocus: false
+              .col-md-6
+                .form-group.mb-3
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-email-83
+                    = f.text_field :mobile_phone, class: 'form-control', placeholder: "Mobile phone", autofocus: false
+
+                .form-group.mb-3
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-lock-circle-open
+                    = f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control', placeholder: "Usernmae", required: true
+
+                .form-group.mb-3
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-lock-circle-open
+                    = f.password_field :password, class: 'form-control', placeholder: "Password", autofocus: false
+              .col-md-12
+                .form-group
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-lock-circle-open
+                    = f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password", autofocus: false
+            .text-center
+              = f.submit 'Sign Up', class: 'btn btn-info my-4 btn-submit', data: {loading_text: 'Signing...', disable_with: 'Please wait....'}
+              
+      .row.mt-3
+        .col-6
+          = link_to new_password_path(resource_name), class: "text-light" do
+            small Forgot password?
+        .col-6.text-right
+          = link_to new_session_path(resource_name), class: "text-light" do
+            small Login
+
+javascript:
+  $('.btn-submit')
+    .click(function () {
+      var btn = $(this)
+      NProgress.start();
+      // NProgress.inc(0.4);
+      // NProgress.set(0.4);
+      btn.button('loading')
+      setTimeout(function () {
+          btn.button('reset')
+      }, 3000)
+  });
+  // NProgress.done();
+  
