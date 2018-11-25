@@ -19,24 +19,16 @@
       polygon.fill-default points=("2560 0 2560 100 0 100") 
 .container.mt--9.pb-5
   .row.justify-content-center
-    .col-lg-5.col-md-7
+    .col-lg-6.col-md-7
       .card.bg-secondary.shadow.border-0
         .card-header.bg-transparent.pb-3
           .text-muted.text-center.mt-2.mb-3
             p Reset Password
-          .btn-wrapper.text-center
-            / a.btn.btn-neutral.btn-icon href="#" 
-              span.btn-inner--icon
-                img src="../assets/img/icons/common/github.svg" /
-              span.btn-inner--text Github
-            / a.btn.btn-neutral.btn-icon href="#" 
-              span.btn-inner--icon
-                = image_tag 'google.svg'
-              span.btn-inner--text Google
         .card-body.px-lg-5.py-lg-4
           .text-center.text-muted.mb-4
             small Enter your email to reset your password
           = form_for(resource, as: resource_name, :html => { class: 'form-horizontal', role: 'form', method: :post }, url: password_path(resource_name)) do |f|
+          	= devise_error_messages!
             .form-group.mb-3
               .input-group.input-group-alternative
                 .input-group-prepend
