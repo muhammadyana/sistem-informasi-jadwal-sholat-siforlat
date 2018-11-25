@@ -38,6 +38,11 @@ GEM
     active_link_to (1.0.5)
       actionpack
       addressable
+    active_model_serializers (0.10.7)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activeadmin (1.4.1)
       arbre (>= 1.1.1)
       coffee-rails
@@ -111,6 +116,8 @@ GEM
       mime-types (>= 1.16)
     carrierwave-base64 (2.3.5)
       carrierwave (>= 0.8.0)
+    case_transform (0.2)
+      activesupport
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (2.1.0)
@@ -208,6 +215,7 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (2.1.0)
+    jsonapi-renderer (0.2.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -385,6 +393,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_link_to
+  active_model_serializers (~> 0.10.0)
   activeadmin
   annotate (~> 2.6.5)
   awesome_print
