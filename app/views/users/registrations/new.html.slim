@@ -52,27 +52,27 @@
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-badge
-                    = f.text_field :first_name, class: 'form-control', placeholder: "First Name", autofocus: false
+                    = f.text_field :first_name, class: 'form-control', placeholder: "First Name", autofocus: false, required: true
                     
                 .form-group.mb-3
                   .input-group.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-circle-08
-                    = f.text_field :last_name, class: 'form-control', placeholder: "Last Name", autofocus: false
+                    = f.text_field :last_name, class: 'form-control', placeholder: "Last Name", autofocus: false, required: true
                 .form-group.mb-3
                   .input-group.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-email-83
-                    = f.email_field :email, class: 'form-control', placeholder: "Email", autofocus: false
+                    = f.email_field :email, class: 'form-control', placeholder: "Email", autofocus: false, required: true
               .col-md-6
                 .form-group.mb-3
                   .input-group.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-mobile-button
-                    = f.text_field :mobile_phone, class: 'form-control', placeholder: "Mobile phone", autofocus: false
+                    = f.text_field :mobile_phone, class: 'form-control', placeholder: "Mobile phone", autofocus: false, required: true
 
                 .form-group.mb-3
                   .input-group.input-group-alternative
@@ -86,14 +86,14 @@
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-lock-circle-open
-                    = f.password_field :password, class: 'form-control', placeholder: "Password", autofocus: false
+                    = f.password_field :password, class: 'form-control', placeholder: "Password", autofocus: false, required: true
               .col-md-12
                 .form-group
                   .input-group.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
                         i.ni.ni-lock-circle-open
-                    = f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password", autofocus: false
+                    = f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password", autofocus: false, required: true
             .text-center
               = f.submit 'Sign Up', class: 'btn btn-info my-4 btn-submit', data: {loading_text: 'Signing...', disable_with: 'Please wait....'}
               
