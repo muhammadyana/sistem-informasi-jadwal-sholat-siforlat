@@ -21,10 +21,11 @@ $theme-colors: ( "bootstrap": #bd56a0, "simpleform": #00617f );
   src: local('Orbitron Regular'), local('Orbitron-Regular'), url(https://fonts.gstatic.com/s/orbitron/v9/yMJRMIlzdpvBhQQL_Qq7dy1biN15.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.prayer-clock{
-	font-family: 'Orbitron', sans-serif !important;
-	font-size: 55px !important;
+.prayer-clock{ font-family: 'Orbitron', sans-serif !important; font-size: 55px !important;
 }
 .flip-clock-wrapper{text-align: left !important;}
 // .login-page{ background: linear-gradient(to right, #f9a610 0%, #c45e96 60%) !important  }
 // .login-page{ background: linear-gradient(87deg,#00f2c3 0,#0098f0 100%)!important  }
+// .bg-image { background-image: url('https://res.cloudinary.com/muhammadyana/image/upload/v1543116280/siforlat/mosque.png');}
+.bg-image { background-image: url("https://res.cloudinary.com/muhammadyana/image/upload/v1543116280/siforlat/mosque.png"); background-repeat: no-repeat; background-attachment: fixed; background-position: center bottom; }
+.mt--16{margin-top: -16rem !important;}
