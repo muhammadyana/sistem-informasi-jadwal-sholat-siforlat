@@ -45,12 +45,12 @@
                 = f.email_field :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, class: 'form-control', placeholder: "Enter your email"
             
             .text-center
-            	= f.submit 'Send me reset password instructions', class: 'btn btn-primary btn-lg btn-block mb-3 btn-submit', data: {loading_text: 'Sending email...', disable_with: 'Please wait....'}
+            	= f.submit 'Send me reset password instructions', class: 'btn btn-info mb-3 btn-submit', data: {loading_text: 'Sending email...', disable_with: 'Please wait....'}
       .row.mt-3
-        .col-6
-          = link_to new_password_path(resource_name), class: "text-light" do
-            small Forgot password?
-        .col-6.text-right
-          = link_to new_registration_path(resource_name), class: "text-light" do
-            small Create new account
+        .col-3
+          = link_to new_session_path(resource_name), class: "text-light" do
+            small Login
+        .col-9.text-right
+          = link_to new_confirmation_path(resource_name), class: "text-light" do
+            small Didn't receive confirmation instructions?
 
