@@ -1,9 +1,67 @@
-h2
-  | Forgot your password?
-= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }
-  .form-actions
-    = f.button :submit, "Send me reset password instructions"
-= render "users/shared/links"
+/ h2
+/   | Forgot your password?
+/ = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+/   = f.error_notification
+/   .form-inputs
+/     = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }
+/   .form-actions
+/     = f.button :submit, "Send me reset password instructions"
+/ = render "users/shared/links"
+
+/ h2
+/   | Log in
+/ = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+/   .form-inputs
+/     = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", class: 'form-control' }
+/     = f.input :password, required: false, input_html: { autocomplete: "current-password", class: 'form-control' }
+/     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+/   .form-actions
+/     = f.button :submit, "Log in", class: "btn btn-success"
+/ = render "users/shared/links"
+.header.bg-image.py-9
+  .container
+    .header-body.text-center.mb-7
+      .row.justify-content-center
+        .col-lg-5.col-md-6
+          h1.text-white SIFORLAT
+          h2.text-white Sistem Informasi Jadwal Sholat
+  .separator.separator-bottom.separator-skew.zindex-100
+    svg preserveaspectratio="none" version="1.1" viewbox=("0 0 2560 100") x="0" xmlns="http://www.w3.org/2000/svg" y="0" 
+      polygon.fill-default points=("2560 0 2560 100 0 100") 
+.container.mt--9.pb-5
+  .row.justify-content-center
+    .col-lg-5.col-md-7
+      .card.bg-secondary.shadow.border-0
+        .card-header.bg-transparent.pb-3
+          .text-muted.text-center.mt-2.mb-3
+            p Reset Password
+          .btn-wrapper.text-center
+            / a.btn.btn-neutral.btn-icon href="#" 
+              span.btn-inner--icon
+                img src="../assets/img/icons/common/github.svg" /
+              span.btn-inner--text Github
+            / a.btn.btn-neutral.btn-icon href="#" 
+              span.btn-inner--icon
+                = image_tag 'google.svg'
+              span.btn-inner--text Google
+        .card-body.px-lg-5.py-lg-4
+          .text-center.text-muted.mb-4
+            small Enter your email to reset your password
+          = form_for(resource, as: resource_name, :html => { class: 'form-horizontal', role: 'form', method: :post }, url: password_path(resource_name)) do |f|
+            .form-group.mb-3
+              .input-group.input-group-alternative
+                .input-group-prepend
+                  span.input-group-text
+                    i.ni.ni-email-83
+                = f.email_field :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, class: 'form-control', placeholder: "Enter your email"
+            
+            .text-center
+            	= f.submit 'Send me reset password instructions', class: 'btn btn-primary btn-lg btn-block mb-3 btn-submit', data: {loading_text: 'Sending email...', disable_with: 'Please wait....'}
+      .row.mt-3
+        .col-6
+          = link_to new_password_path(resource_name), class: "text-light" do
+            small Forgot password?
+        .col-6.text-right
+          = link_to new_registration_path(resource_name), class: "text-light" do
+            small Create new account
+
