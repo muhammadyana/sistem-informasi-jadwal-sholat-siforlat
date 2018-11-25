@@ -24,7 +24,7 @@
       .card.bg-secondary.shadow.border-0
         .card-header.bg-transparent.pb-3
           .text-muted.text-center.mt-2.mb-3
-            small Sign to manage your own Prayer Times
+            p Sign to manage your own Prayer Times
           .btn-wrapper.text-center
             / a.btn.btn-neutral.btn-icon href="#" 
               span.btn-inner--icon
@@ -36,7 +36,7 @@
               span.btn-inner--text Google
         .card-body.px-lg-5.py-lg-4
           .text-center.text-muted.mb-4
-            small Or sign in with credentials
+            small Login here
           = form_for(resource, as: resource_name, :html => { class: 'form-horizontal', role: 'form' }, url: session_path(resource_name)) do |f| 
             .form-group.mb-3
               .input-group.input-group-alternative
