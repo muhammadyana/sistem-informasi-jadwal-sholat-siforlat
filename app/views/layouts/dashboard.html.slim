@@ -1,0 +1,112 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    = viewport_meta_tag
+    title= content_for?(:title) ? yield(:title) : "Sistem Informasi Jadwal Sholat - Siforlat"
+    = csrf_meta_tags
+
+    /! Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"
+    = stylesheet_link_tag "application", media: "all"
+    / link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"
+    /= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '144x144'
+    /= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '114x114'
+    /= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png', sizes: '72x72'
+    /= favicon_link_tag 'apple-touch-icon-precomposed.png', rel: 'apple-touch-icon-precomposed', type: 'image/png'
+    /= favicon_link_tag 'favicon.ico', rel: 'shortcut icon'
+    = javascript_include_tag "application"
+
+  body.white-content
+    .wrapper
+      /.sidebar data="green"
+        .sidebar-wrapper
+          .logo
+            a.simple-text.logo-mini href="javascript:void(0)" 
+              | CT
+            a.simple-text.logo-normal href="javascript:void(0)" 
+              | Creative Tim
+          ul.nav
+            li.active
+              a href="./dashboard.html" 
+                i.tim-icons.icon-chart-pie-36
+                p Dashboard
+            li
+              a href="./icons.html" 
+                i.tim-icons.icon-atom
+                p Icons
+            li
+              a href="./map.html" 
+                i.tim-icons.icon-pin
+                p Maps
+            li
+              a href="./notifications.html" 
+                i.tim-icons.icon-bell-55
+                p Notifications
+            li
+              a href="./user.html" 
+                i.tim-icons.icon-single-02
+                p User Profile
+            li
+              a href="./tables.html" 
+                i.tim-icons.icon-puzzle-10
+                p Table List
+            li
+              a href="./typography.html" 
+                i.tim-icons.icon-align-center
+                p Typography
+            li
+              a href="./rtl.html" 
+                i.tim-icons.icon-world
+                p RTL Support
+            li.active-pro
+              a href="./upgrade.html" 
+                i.tim-icons.icon-spaceship
+                p Upgrade to PRO
+      .main-panel
+        /nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent
+          .container-fluid
+            .navbar-wrapper
+              .navbar-toggle.d-inline
+                button.navbar-toggler type="button" 
+                  span.navbar-toggler-bar.bar1
+                  span.navbar-toggler-bar.bar2
+                  span.navbar-toggler-bar.bar3
+              a.navbar-brand href="javascript:void(0)"  Dashboard
+            button.navbar-toggler aria-expanded="false" aria-label=("Toggle navigation") data-target="#navigation" data-toggle="collapse" type="button" 
+              span.navbar-toggler-bar.navbar-kebab
+              span.navbar-toggler-bar.navbar-kebab
+              span.navbar-toggler-bar.navbar-kebab
+            #navigation.collapse.navbar-collapse
+              ul.navbar-nav.ml-auto
+                li.search-bar.input-group
+                  /button#search-button.btn.btn-link data-target="#searchModal" data-toggle="modal" 
+                    i.tim-icons.icon-zoom-split
+                    span.d-lg-none.d-md-block Search
+                
+        .content
+          - if user_signed_in?
+            = link_to 'Logout', logout_path, method: :delete, class: "nav-item dropdown-item"
+          = yield
+    = yield :js_plugin
+  - if notice
+    javascript:
+      notie.alert({
+        type: 1, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+        text: "#{notice}",
+        stay: false, // optional, default = false
+        time: 4, // optional, default = 3, minimum = 1,
+        position: 'top' // optional, default = 'top', enum: ['top', 'bottom']
+      });
+  - if alert
+    javascript:
+      notie.alert({
+        type: 2, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+        text: "#{alert}",
+        stay: false, // optional, default = false
+        time: 4, // optional, default = 3, minimum = 1,
+        position: 'top' // optional, default = 'top', enum: ['top', 'bottom']
+      });
