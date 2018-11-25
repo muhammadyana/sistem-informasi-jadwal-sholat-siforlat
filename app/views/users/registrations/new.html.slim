@@ -51,33 +51,34 @@
                   .input-group.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
+                        i.ni.ni-badge
+                    = f.text_field :first_name, class: 'form-control', placeholder: "First Name", autofocus: false
+                    
+                .form-group.mb-3
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
+                        i.ni.ni-circle-08
+                    = f.text_field :last_name, class: 'form-control', placeholder: "Last Name", autofocus: false
+                .form-group.mb-3
+                  .input-group.input-group-alternative
+                    .input-group-prepend
+                      span.input-group-text
                         i.ni.ni-email-83
                     = f.email_field :email, class: 'form-control', placeholder: "Email", autofocus: false
-                .form-group.mb-3
-                  .input-group.input-group-alternative
-                    .input-group-prepend
-                      span.input-group-text
-                        i.ni.ni-email-83
-                    = f.text_field :first_name, class: 'form-control', placeholder: "First Name", autofocus: false
-                .form-group.mb-3
-                  .input-group.input-group-alternative
-                    .input-group-prepend
-                      span.input-group-text
-                        i.ni.ni-email-83
-                    = f.text_field :last_name, class: 'form-control', placeholder: "Last Name", autofocus: false
               .col-md-6
                 .form-group.mb-3
                   .input-group.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
-                        i.ni.ni-email-83
+                        i.ni.ni-mobile-button
                     = f.text_field :mobile_phone, class: 'form-control', placeholder: "Mobile phone", autofocus: false
 
                 .form-group.mb-3
                   .input-group.input-group-alternative
                     .input-group-prepend
                       span.input-group-text
-                        i.ni.ni-lock-circle-open
+                        i.ni.ni-single-02
                     = f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control', placeholder: "Usernmae", required: true
 
                 .form-group.mb-3
