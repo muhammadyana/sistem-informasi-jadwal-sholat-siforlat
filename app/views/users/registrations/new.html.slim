@@ -105,17 +105,4 @@
           = link_to new_session_path(resource_name), class: "text-light" do
             small Login
 
-javascript:
-  $('.btn-submit')
-    .click(function () {
-      var btn = $(this)
-      NProgress.start();
-      // NProgress.inc(0.4);
-      // NProgress.set(0.4);
-      btn.button('loading')
-      setTimeout(function () {
-          btn.button('reset')
-      }, 3000)
-  });
-  // NProgress.done();
   
