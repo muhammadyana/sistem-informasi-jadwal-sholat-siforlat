@@ -1,0 +1,33 @@
+- model_class = Mosque
+.page-header
+  h1=t '.title', default: model_class.model_name.human.pluralize.titleize
+table.table.table-striped
+  thead
+    tr
+      th= model_class.human_attribute_name(:id)
+      th= model_class.human_attribute_name(:name)
+      th= model_class.human_attribute_name(:address)
+      th= model_class.human_attribute_name(:latitude)
+      th= model_class.human_attribute_name(:longitude)
+      th= model_class.human_attribute_name(:user_id)
+      th= model_class.human_attribute_name(:created_at)
+      th=t '.actions', default: t("helpers.actions")
+  tbody
+    - @mosques.each do |mosque|
+      tr
+        td= mosque.id
+        td= mosque.name
+        td= mosque.address
+        td= mosque.latitude
+        td= mosque.longitude
+        td= mosque.user_id
+        td=l mosque.created_at, format: :long
+        td
+          = link_to mosque_path(mosque), class: 'btn btn-xs', title: "#{ t('.show', default: t('helpers.links.show')) }" do
+            = glyph 'info-sign'
+          = link_to edit_mosque_path(mosque), class: 'btn btn-xs', title: "#{ t('.edit', default: t('helpers.links.edit')) }" do
+            = glyph 'pencil'
+          = link_to mosque_path(mosque), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-xs', title: "#{ t('.destroy', default: t('helpers.links.destroy')) }" do
+            = glyph 'remove'
+
+= link_to t('.new', default: t("helpers.links.new")), new_mosque_path, class: 'btn btn-primary'

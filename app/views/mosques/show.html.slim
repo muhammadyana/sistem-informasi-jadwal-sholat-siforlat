@@ -1,0 +1,28 @@
+- model_class = Mosque
+div class="page-header"
+  h1=t '.title', default: model_class.model_name.human.titleize
+
+.fieldset
+  dl
+      dt.label.label-default= model_class.human_attribute_name(:name)
+      dd
+        pre.prettyprint= @mosque.name
+      dt.label.label-default= model_class.human_attribute_name(:address)
+      dd
+        pre.prettyprint= @mosque.address
+      dt.label.label-default= model_class.human_attribute_name(:latitude)
+      dd
+        pre.prettyprint= @mosque.latitude
+      dt.label.label-default= model_class.human_attribute_name(:longitude)
+      dd
+        pre.prettyprint= @mosque.longitude
+      dt.label.label-default= model_class.human_attribute_name(:user_id)
+      dd
+        pre.prettyprint= @mosque.user_id
+
+.form-group
+  = link_to t('.back', default: t("helpers.links.back")), mosques_path, class: 'btn btn-default'
+  '
+  = link_to t('.edit', default: t("helpers.links.edit")), edit_mosque_path(@mosque), class: 'btn btn-default'
+  '
+  = link_to t('.destroy', default: t("helpers.links.destroy")), mosque_path(@mosque), method: "delete", data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'
