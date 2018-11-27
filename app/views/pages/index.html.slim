@@ -1,3 +1,102 @@
+.position-relative
+  /! shape Hero
+  section.section.section-lg.section-shaped.pb-250
+    .shape.shape-style-1.shape-success
+      span
+      span
+      span
+      span
+      span
+      span
+      span
+      span
+      span
+    .container.py-lg-md.d-flex
+      .col.px-0
+        .row
+          .col-lg-6
+            h1.display-3.text-white
+              | SIFORLAT APP
+              span Aplikasi Sistem Informasi Jadwal Sholat
+            / p.lead.text-white The design system comes with four pre-built pages to help you get started faster. You can change the text and images and you're good to go.
+            .btn-wrapper
+              a.btn.btn-info.btn-icon.mb-3.mb-sm-0 href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" 
+                span.btn-inner--icon
+                  i.fa.fa-code
+                span.btn-inner--text Components
+              a.btn.btn-white.btn-icon.mb-3.mb-sm-0 href="https://www.creative-tim.com/product/argon-design-system" 
+                span.btn-inner--icon
+                  i.ni.ni-cloud-download-95
+                span.btn-inner--text Download HTML
+    /! SVG separator
+    .separator.separator-bottom.separator-skew
+      svg preserveaspectratio="none" version="1.1" viewbox=("0 0 2560 100") x="0" xmlns="http://www.w3.org/2000/svg" y="0" 
+        polygon.fill-white points=("2560 0 2560 100 0 100") 
+  /! 1st Hero Variation
+
+section.section.section-lg.pt-lg-0.mt--200
+  .container-fluid
+    .row.justify-content-center
+      .col-lg-12
+        .row.row-grid
+          .col-lg-2
+            .card.card-lift--hover.shadow.border-0
+              .card-body.py-5
+              	center
+	                .icon.icon-shape.icon-shape-success.rounded-circle.mb-4
+	                  i.ni.ni-istanbul
+	                h6.text-info.text-uppercase Imsak
+	                h1.text-success.text-uppercase.imsak.prayer-clock
+	                / p.description.mt-3 Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.
+	                / div
+	                  span.badge.badge-pill.badge-primary design
+	                  span.badge.badge-pill.badge-primary system
+	                  span.badge.badge-pill.badge-primary creative
+	                /a.btn.btn-primary.mt-4 href="#"  Learn more
+          .col-lg-2
+            .card.card-lift--hover.shadow.border-0
+              .card-body.py-5
+              	center
+	                .icon.icon-shape.icon-shape-success.rounded-circle.mb-4
+	                  i.ni.ni-istanbul
+	                h6.text-info.text-uppercase Subuh
+	                h1.text-success.text-uppercase.subuh.prayer-clock
+	                
+                
+          .col-lg-2
+            .card.card-lift--hover.shadow.border-0
+              .card-body.py-5
+              	center
+	                .icon.icon-shape.icon-shape-success.rounded-circle.mb-4
+	                  i.ni.ni-istanbul
+	                h6.text-info.text-uppercase Dzuhur
+	                h1.text-success.text-uppercase.dzuhur.prayer-clock
+
+          .col-lg-2
+            .card.card-lift--hover.shadow.border-0
+              .card-body.py-5
+              	center
+	                .icon.icon-shape.icon-shape-success.rounded-circle.mb-4
+	                  i.ni.ni-istanbul
+	                h6.text-info.text-uppercase Asr
+	                h1.text-success.text-uppercase.ashar.prayer-clock
+          .col-lg-2
+            .card.card-lift--hover.shadow.border-0
+              .card-body.py-5
+              	center
+	                .icon.icon-shape.icon-shape-success.rounded-circle.mb-4
+	                  i.ni.ni-istanbul
+	                h6.text-info.text-uppercase Magrib
+	                h1.text-success.text-uppercase.magrib.prayer-clock
+          .col-lg-2
+            .card.card-lift--hover.shadow.border-0
+              .card-body.py-5
+              	center
+	                .icon.icon-shape.icon-shape-success.rounded-circle.mb-4
+	                  i.ni.ni-istanbul
+	                h6.text-info.text-uppercase Isya
+	                h1.text-success.text-uppercase.isya.prayer-clock
+
 
 #clock
 .row
@@ -216,6 +315,7 @@ pre
 			theCounter.start();
 			$('.subuh').html(getScheduleFor.fajr);
 			$('.fajar').html(getScheduleFor.sunrise);
+			$('.imsak').html(getScheduleFor.imsak);
 			$('.dzuhur').html(getScheduleFor.dhuhr);
 			$('.ashar').html(getScheduleFor.asr);
 			$('.magrib').html(getScheduleFor.maghrib);
