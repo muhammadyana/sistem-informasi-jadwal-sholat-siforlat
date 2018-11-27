@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
+  get 'dashboard', to: 'dashboard#index'
   resources :mosques
   devise_for :users, controllers: { 
   	:sessions            => 'users/sessions',
