@@ -24,3 +24,6 @@ $theme-colors: ( "bootstrap": #bd56a0, "simpleform": #00617f );
 // .bg-image { background-image: url('https://res.cloudinary.com/muhammadyana/image/upload/v1543116280/siforlat/mosque.png');}
 .bg-image { background-image: url("https://res.cloudinary.com/muhammadyana/image/upload/v1543118937/siforlat/mosque-xs.png"); background-repeat: no-repeat; background-attachment: fixed; background-position: center top; }
 .mt--16{margin-top: -16rem !important;}
+
+// for landing
+.section-shaped .shape-success {background: linear-gradient(150deg, #8bc34a 15%, #7cb342  70%, #689f38 94%)}
