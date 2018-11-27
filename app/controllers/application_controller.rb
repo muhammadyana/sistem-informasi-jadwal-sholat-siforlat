@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
 		# end
 		
 		def after_sign_in_path_for(resource)
-      stored_location_for(resource) || dashboard_path
+			logger.info("======== resource user = #{resource.to_json}")
+			logger.info("======== mosque present? = #{resource.mosque.present?}")
+			# If user dont have a mosque? redirect to create new mosque
+			unless resource.mosque.present?
+				mosques_path
+			else
+				stored_location_for(resource) || dashboard_path
+			end
+      
     end
 end
