@@ -46,23 +46,23 @@ html lang="en"
                 .dropdown-menu.dropdown-menu-xl
                   .dropdown-menu-inner
                     a.media.d-flex.align-items-center href="https://demos.creative-tim.com/argon-design-system/docs/getting-started/overview.html" 
-                    .icon.icon-shape.bg-gradient-primary.rounded-circle.text-white
-                      i.ni.ni-spaceship
-                    .media-body.ml-3
-                      h6.heading.text-primary.mb-md-1 Getting started
-                      p.description.d-none.d-md-inline-block.mb-0 Learn how to use Argon compiling Scss, change brand colors and more.
+                      .icon.icon-shape.bg-gradient-primary.rounded-circle.text-white
+                        i.ni.ni-spaceship
+                      .media-body.ml-3
+                        h6.heading.text-primary.mb-md-1 Getting started
+                        p.description.d-none.d-md-inline-block.mb-0 Learn how to use Argon compiling Scss, change brand colors and more.
                     a.media.d-flex.align-items-center href="https://demos.creative-tim.com/argon-design-system/docs/foundation/colors.html" 
-                    .icon.icon-shape.bg-gradient-success.rounded-circle.text-white
-                      i.ni.ni-palette
-                    .media-body.ml-3
-                      h6.heading.text-primary.mb-md-1 Foundation
-                      p.description.d-none.d-md-inline-block.mb-0 Learn more about colors, typography, icons and the grid system we used for Argon.
+                      .icon.icon-shape.bg-gradient-success.rounded-circle.text-white
+                        i.ni.ni-palette
+                      .media-body.ml-3
+                        h6.heading.text-primary.mb-md-1 Foundation
+                        p.description.d-none.d-md-inline-block.mb-0 Learn more about colors, typography, icons and the grid system we used for Argon.
                     a.media.d-flex.align-items-center href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" 
-                    .icon.icon-shape.bg-gradient-warning.rounded-circle.text-white
-                      i.ni.ni-ui-04
-                    .media-body.ml-3
-                      h5.heading.text-warning.mb-md-1 Components
-                      p.description.d-none.d-md-inline-block.mb-0 Browse our 50 beautiful handcrafted components offered in the Free version.
+                      .icon.icon-shape.bg-gradient-warning.rounded-circle.text-white
+                        i.ni.ni-ui-04
+                      .media-body.ml-3
+                        h5.heading.text-warning.mb-md-1 Components
+                        p.description.d-none.d-md-inline-block.mb-0 Browse our 50 beautiful handcrafted components offered in the Free version.
               li.nav-item.dropdown
                 a.nav-link data-toggle="dropdown" href="#" role="button" 
                   i.ni.ni-collection.d-lg-none
@@ -90,10 +90,12 @@ html lang="en"
                   i.fa.fa-github
                   span.nav-link-inner--text.d-lg-none Github
               li.nav-item.d-none.d-lg-block.ml-lg-4
-                a.btn.btn-neutral.btn-icon href="https://www.creative-tim.com/product/argon-design-system" target="_blank" 
-                  span.btn-inner--icon
-                    i.fa.fa-cloud-download.mr-2
-                  span.nav-link-inner--text Download
+                - if user_signed_in?
+                  = link_to logout_path, method: :delete, class: "btn btn-warning btn-icon" do
+                    span.nav-link-inner--text Logout
+                - else
+                  = link_to new_user_session_path, class: "btn btn-neutral btn-icon" do
+                    span.nav-link-inner--text Login
 
     main
       .position-relative
