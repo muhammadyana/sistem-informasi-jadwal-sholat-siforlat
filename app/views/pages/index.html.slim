@@ -17,8 +17,8 @@
           .col-lg-6
             h1.display-3.text-white
               | SIFORLAT APP
-              span Aplikasi Sistem Informasi Jadwal Sholat
-            / p.lead.text-white The design system comes with four pre-built pages to help you get started faster. You can change the text and images and you're good to go.
+              span Prayer Schedule Information System Application
+            p.lead.text-white Create your own PrayerTimes Schedule for your mosque with SIFORLAT App. Register and plug into Mosque
             .btn-wrapper
               /a.btn.btn-info.btn-icon.mb-3.mb-sm-0 href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" 
                 span.btn-inner--icon
@@ -30,6 +30,10 @@
                 span.btn-inner--text Download App
           .col-lg-6
             #clock
+            center.mb-4
+            	p.text-white Upcoming Prayer Time
+
+            #upcomingSchedule
     /! SVG separator
     .separator.separator-bottom.separator-skew
       svg preserveaspectratio="none" version="1.1" viewbox=("0 0 2560 100") x="0" xmlns="http://www.w3.org/2000/svg" y="0" 
@@ -114,7 +118,7 @@ section.section.section-lg.pt-lg-0.mt--200
 		.magrib.prayer-clock
 	.col-md-2
 		.isya.prayer-clock
-#itung
+
 pre
 	#jsonData
 
@@ -227,7 +231,7 @@ pre
 			console.log(getScheduleFor.fajr)
 			var upcoming = getUpcomingSchedule();
 
-			var theCounter = $('#itung').FlipClock(duration(upcoming), {
+			var theCounter = $('#upcomingSchedule').FlipClock(duration(upcoming), {
 				clockFace: 'HourCounter',
 				countdown: true,
 				autoStart: false,
