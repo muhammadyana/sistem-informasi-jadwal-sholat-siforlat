@@ -5,12 +5,12 @@ Rails.application.routes.draw do
     resources :mosques
   end
   devise_for :users, controllers: { 
-  	:sessions            => 'users/sessions',
-    :registrations      => 'users/registrations',
+  	:sessions             => 'users/sessions',
+    :registrations        => 'users/registrations',
     # :omniauth_callbacks => "users/omniauth_callbacks" ,
-    :invitations        => 'users/invitations',
-    :confirmations      => 'users/confirmations',
-    :passwords          => 'users/passwords'
+    :invitations          => 'users/invitations',
+    :confirmations        => 'users/confirmations',
+    :passwords            => 'users/passwords'
   }
   devise_scope :user do
     delete 'logout', to: 'devise/sessions#destroy'
