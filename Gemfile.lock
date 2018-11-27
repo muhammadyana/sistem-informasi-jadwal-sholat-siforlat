@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/plataformatec/devise.git
-  revision: 6f140faf0d6519b46ed8f9c4af7b871317389488
+  revision: 52b24e41de5093fe60a89019b2462608874d5745
   specs:
     devise (4.5.0)
       bcrypt (~> 3.0)
@@ -38,12 +38,12 @@ GEM
     active_link_to (1.0.5)
       actionpack
       addressable
-    active_model_serializers (0.10.7)
+    active_model_serializers (0.10.8)
       actionpack (>= 4.1, < 6)
       activemodel (>= 4.1, < 6)
       case_transform (>= 0.2)
       jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
-    activeadmin (1.4.1)
+    activeadmin (1.4.2)
       arbre (>= 1.1.1)
       coffee-rails
       formtastic (~> 3.1)
@@ -79,9 +79,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    annotate (2.6.7)
-      activerecord (>= 2.3.0)
-      rake (~> 10.4.2, >= 10.4.2)
+    annotate (2.7.4)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     archive-zip (0.11.0)
@@ -306,7 +306,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
-    rake (10.4.2)
+    rake (12.3.1)
     ransack (2.1.0)
       actionpack (>= 5.0)
       activerecord (>= 5.0)
@@ -340,7 +340,7 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
     sexp_processor (4.11.0)
-    simple_form (4.0.1)
+    simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     slim (4.0.1)
@@ -393,7 +393,7 @@ DEPENDENCIES
   active_link_to
   active_model_serializers (~> 0.10.0)
   activeadmin
-  annotate (~> 2.6.5)
+  annotate
   awesome_print
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.1.3)
