@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  get 'dashboard', to: 'dashboard#index'
-  resources :mosques
+
+  scope 'dashboard' do
+    get '/', to: 'dashboard#index', as: :dashboard
+    resources :mosques
+  end
   devise_for :users, controllers: { 
   	:sessions            => 'users/sessions',
     :registrations      => 'users/registrations',
-    # :omniauth_callbacks => "accounts/omniauth_callbacks" ,
+    # :omniauth_callbacks => "users/omniauth_callbacks" ,
     :invitations        => 'users/invitations',
     :confirmations      => 'users/confirmations',
     :passwords          => 'users/passwords'
@@ -14,12 +17,9 @@ Rails.application.routes.draw do
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  # resources :users
   get 'pages/index'
   root 'pages#index'
   
-		  
-
   namespace :api do
     namespace :v1, defaults: { format: :json } do
       get 'prayer-times/:duration', to: 'prayer_times#index'
