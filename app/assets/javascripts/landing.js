@@ -6,6 +6,7 @@
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
+//= require headroom.min
 //= require argon-landing.min
 //= require notie.min
 //= require flipclock

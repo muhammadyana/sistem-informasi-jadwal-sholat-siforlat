@@ -134,11 +134,49 @@ html lang="en"
               polygon.fill-white points=("2560 0 2560 100 0 100") 
         /! 1st Hero Variation
 
-    
-    .content
-      - if user_signed_in?
-        = link_to 'Logout', logout_path, method: :delete, class: "nav-item dropdown-item"
-      = yield
+      section.section.section-lg.pt-lg-0.mt--200
+        .container
+          .row.justify-content-center
+            .col-lg-12
+              .row.row-grid
+                .col-lg-4
+                  .card.card-lift--hover.shadow.border-0
+                    .card-body.py-5
+                      .icon.icon-shape.icon-shape-primary.rounded-circle.mb-4
+                        i.ni.ni-check-bold
+                      h6.text-primary.text-uppercase Download Argon
+                      p.description.mt-3 Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.
+                      div
+                        span.badge.badge-pill.badge-primary design
+                        span.badge.badge-pill.badge-primary system
+                        span.badge.badge-pill.badge-primary creative
+                      a.btn.btn-primary.mt-4 href="#"  Learn more
+                .col-lg-4
+                  .card.card-lift--hover.shadow.border-0
+                    .card-body.py-5
+                      .icon.icon-shape.icon-shape-success.rounded-circle.mb-4
+                        i.ni.ni-istanbul
+                      h6.text-success.text-uppercase Build Something
+                      p.description.mt-3 Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.
+                      div
+                        span.badge.badge-pill.badge-success business
+                        span.badge.badge-pill.badge-success vision
+                        span.badge.badge-pill.badge-success success
+                      a.btn.btn-success.mt-4 href="#"  Learn more
+                .col-lg-4
+                  .card.card-lift--hover.shadow.border-0
+                    .card-body.py-5
+                      .icon.icon-shape.icon-shape-warning.rounded-circle.mb-4
+                        i.ni.ni-planet
+                      h6.text-warning.text-uppercase Prepare Launch
+                      p.description.mt-3 Argon is a great free UI package based on Bootstrap 4 that includes the most important components and features.
+                      div
+                        span.badge.badge-pill.badge-warning marketing
+                        span.badge.badge-pill.badge-warning product
+                        span.badge.badge-pill.badge-warning launch
+                      a.btn.btn-warning.mt-4 href="#"  Learn more
+      section
+        = yield
     = yield :js_plugin
   - if notice
     javascript:
