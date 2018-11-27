@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 			logger.info("======== mosque present? = #{resource.mosque.present?}")
 			# If user dont have a mosque? redirect to create new mosque
 			unless resource.mosque.present?
-				mosques_path
+				new_user_mosque_path(resource)
 			else
 				stored_location_for(resource) || dashboard_path
 			end

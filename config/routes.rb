@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   scope 'dashboard' do
     get '/', to: 'dashboard#index', as: :dashboard
-    resources :mosques
+    
+    resources :users, except: [:new, :create, :update, :edit, :destroy] do
+      resources :mosques
+    end
+
   end
   devise_for :users, controllers: { 
   	:sessions             => 'users/sessions',
