@@ -32,8 +32,8 @@
             #clock
             center.mb-4
             	p#upcomingPrayer.text-white
-
-            #upcomingSchedule
+						#timeDiv
+            	#upcomingSchedule
     /! SVG separator
     .separator.separator-bottom.separator-skew
       svg preserveaspectratio="none" version="1.1" viewbox=("0 0 2560 100") x="0" xmlns="http://www.w3.org/2000/svg" y="0" 
@@ -124,7 +124,7 @@ section.section.section-lg.pt-lg-0.mt--200
 
 - content_for :js_plugin
 	javascript:
-		$('#prayerSchedule').hide();
+		$('#prayerSchedule').hide(100);
 		navigator.geolocation.getCurrentPosition((loc) => {
 			console.log('your location is: [', loc.coords.latitude, ',', loc.coords.longitude, ']');
 			
@@ -297,6 +297,7 @@ section.section.section-lg.pt-lg-0.mt--200
 				console.log(getJadwal().isha);
 				$('#jsonData').html(JSON.stringify(getJadwal()));
 				theCounter.start();
+				$('#timeDiv').show("fast");
 				$('.subuh').html(getScheduleFor.fajr);
 				$('.fajar').html(getScheduleFor.sunrise);
 				$('.imsak').html(getScheduleFor.imsak);
@@ -305,7 +306,7 @@ section.section.section-lg.pt-lg-0.mt--200
 				$('.magrib').html(getScheduleFor.maghrib);
 				$('.isya').html(getScheduleFor.isha);
 				$('#upcomingPrayer').html('Upcoming Prayer Time');
-				$('#prayerSchedule').show();
+				$('#prayerSchedule').show("fast");
 				// var clock = $('.clock').FlipClock({});
 			});
 		});
