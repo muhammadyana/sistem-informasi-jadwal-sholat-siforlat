@@ -124,6 +124,195 @@ section.section.section-lg.pt-lg-0.mt--200
 
 - content_for :js_plugin
 	javascript:
+
+		navigator.geolocation.getCurrentPosition((loc) => {
+			console.log('your location is: [', loc.coords.latitude, ',', loc.coords.longitude, ']');
+			
+			var duration = function(end){
+				var start  = moment();
+				// mencari jarak berupa detik
+				//jam tujuan dikurangi dengan jam sekarang dengan moment diff dalam bentuk detik
+				//console.log(start); //lihat waktu sekarang dari moment.
+				return end.diff(start, 'seconds');
+
+			};
+			var strToMoment = function(str){
+				// mengubah string ke moment object hari ini
+				// javascript memang pusing. but its beutiful
+				// misal: 18:00 => akan diubah ke moment berdasarkan hari sekarang jam 18:00
+				// HH => jam 00 - 24
+				// mm => 00 - 59
+				return moment(str, 'HH:mm');
+			};
+			var getJadwal = function(when){
+				prayTimes.setMethod('Karachi');
+				// mendapatkan moment object pada hari ini
+				var toDay = moment();
+				if (when == 'tomorrow') {
+					// jika besok maka tambah satu hari
+					date = toDay.add('1', 'days');
+				} else {
+					// hari ini
+					date = toDay;
+				}
+				
+				return prayTimes.getTimes(date.toDate(), [loc.coords.latitude, loc.coords.longitude], +7);
+			};
+			var getUpcomingSchedule = function(){
+				var result = null;
+				// looping berdasarkan jadwal hari ini
+				// tergantung urutan di json dari praytime
+				// baru engeh di praytime ada midnight. pantes dari isya ke subuh jedahnya cuma 4 jam
+				// ga taunya itu midnight bukan subuh.
+				// 2 hari nyari ginian baru ketemu. you make me........!
+				// harus di delete lagi json objectnya :(
+				// untung ada di google
+					// karena urutan dari subuh ke isya jadi gk perlu reorder lagi
+					var jedah = getJadwal(); // data json jadwal sholat
+					var hapus ="midnight"; //cari yg mau dihapus
+					//console.log(jedah);
+					delete jedah[hapus]; //hapus midnight biar langsung ke subuh
+					// console.log(jedah);
+
+				$.each(jedah,function(key, val) {
+					momentVal = strToMoment(val);
+					// jika jam sholat belum lewat jam sekarang
+				// jadwal dari praytime dibandingin sama jam sekarang lebih dari nol brrti itu jadwal sepanjutnya
+					if (momentVal.diff(moment()) > 0) {
+						result = strToMoment(val);
+						//console.log(result);
+						return false;
+					}
+				});
+				//console.log(getUpcomingSchedule);
+
+				// jika hari ini sudah melewati sholat isya
+				if (result === null) {
+					result = strToMoment(getJadwal('tomorrow').fajr).add(1, 'days');
+				}
+				return result;
+			};
+			
+			var duration = function(end){
+				var start  = moment();
+				// mencari jarak berupa detik
+				//jam tujuan dikurangi dengan jam sekarang dengan moment diff dalam bentuk detik
+				//console.log(start); //lihat waktu sekarang dari moment.
+				return end.diff(start, 'seconds');
+			};
+			// console.log(getJadwal())
+			$(document).ready(function() {
+				var getScheduleFor = getJadwal();
+		    console.log(getScheduleFor);
+		    // var clock = $('.clock').FlipClock(3600);
+				
+				console.log(getScheduleFor.fajr)
+				var upcoming = getUpcomingSchedule();
+
+				var theCounter = $('#upcomingSchedule').FlipClock(duration(upcoming), {
+					clockFace: 'HourCounter',
+					countdown: true,
+					autoStart: false,
+					//console.log(theCounter)
+					callbacks: {
+						interval:function(){
+							// mendapatkan jeda waktu ke sholat selanjutnya
+							//console.log(theCounter.getTime().time);
+							/* var time = theCounter.getTime().time;
+							 * console.log(time);
+							 * Minggu 17:20 @ Lab sisdig nyari selang sekian menit di flipclockjs.
+							 * jika waktu solat selanjutnya 1 jam lagi maka beri reminder
+							 */
+							//console.log(duration(upcoming));
+							if ( theCounter.getTime().time == 3600 ) {
+								$(".audioSatujam").trigger('load');
+								$(".audioSatujam").trigger('play');
+							}
+							// jika waktu solat selanjutnya 30 menit lagi. maka beri reminder
+							if (theCounter.getTime().time == 1800) {
+								$(".audioTigaPuluh").trigger('load');
+								$(".audioTigaPuluh").trigger('play');
+							}
+							// jika wakto solat sleanjutnya 10 menit lagi, maka beri reminder
+							if (theCounter.getTime().time == 600) {
+								$(".audioSepuluh").trigger('load');
+								$(".audioSepuluh").trigger('play');
+							}
+							
+							// jika wakto solat sleanjutnya lima menit lagi, maka beri reminder
+							if ( theCounter.getTime().time == 300) {
+								$(".audioLima").trigger('load');
+								$(".audioLima").trigger('play');
+								//$(".videokajian").trigger('pause');
+								// 5 minute before adzan change video to slider
+
+
+							}
+							// jika wakto solat sleanjutnya 3 menit lagi, maka beri reminder
+							// if ( theCounter.getTime().time == 180) {
+							// 	$(".audioTiga").trigger('load');
+							// 	$(".audioTiga").trigger('play');
+							// }
+							// jika wakto solat sleanjutnya 1 menit lagi, maka beri reminder
+							if ( theCounter.getTime().time == 60) {
+								//swal("Good job!", "Selamat Menggunakan Aplikasi Kami :) ", "success");
+								$(".audioSatuMenit").trigger('load');
+								$(".audioSatuMenit").trigger('play');
+							}
+
+						},
+						stop: function(){
+							// jalankan counter dengan jarak
+							// ke waktu sholat selanjutnya
+							// var AdzanAudio = new Audio('adzan.mp3');
+							// AdzanAudio.play();
+							$(".videokajian").trigger('pause');
+							$(".audioAdzan").trigger('load');
+							$(".audioAdzan").trigger('play');
+							// ketika sudah lewat 10 menit dari waktu solat beri reminder
+							setTimeout(function() {
+								// var afterTenMinutue = new Audio('after2.mp3');
+								// afterTenMinutue.play();
+								// naha sih kudu ka ms
+								//1 detik = 1000 milisecond
+								// 1 menit = 60000 ms
+								//10 menit = 600000 ms
+								// 20 menit 1200000
+								//reminder pertama
+								upcoming = getUpcomingSchedule();
+								theCounter.setTime(duration(upcoming));
+								theCounter.start();
+								},10000);
+							setTimeout(function() {
+								// var afterTwentyMinute = new Audio('after20.mp3');
+								// afterTwentyMinute.play();
+								// $(".videokajian").trigger('play');
+
+								//20 minute after adzan change slider to video kajian
+								//reminder lagi. gera solat woy
+							},10000);
+						}
+					}
+				});
+				console.log(getJadwal().isha);
+				$('#jsonData').html(JSON.stringify(getJadwal()));
+				theCounter.start();
+				$('.subuh').html(getScheduleFor.fajr);
+				$('.fajar').html(getScheduleFor.sunrise);
+				$('.imsak').html(getScheduleFor.imsak);
+				$('.dzuhur').html(getScheduleFor.dhuhr);
+				$('.ashar').html(getScheduleFor.asr);
+				$('.magrib').html(getScheduleFor.maghrib);
+				$('.isya').html(getScheduleFor.isha);
+				// var clock = $('.clock').FlipClock({});
+			});
+		});
+
+		$('#clock').FlipClock({
+			clockFace: 'TwentyFourHourClock'
+		});
+		
+
 		var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 		var myDays = ['Minggu','Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum&#39;at', 'Sabtu'];
 		var date = new Date();
@@ -137,194 +326,3 @@ section.section.section-lg.pt-lg-0.mt--200
 		//console.log(month);
 		$('.tanggal').html(thisDay +',' + ' ' + day + ' ' + month + ' ' + year);
 
-		var duration = function(end){
-			var start  = moment();
-			// mencari jarak berupa detik
-			//jam tujuan dikurangi dengan jam sekarang dengan moment diff dalam bentuk detik
-			//console.log(start); //lihat waktu sekarang dari moment.
-			return end.diff(start, 'seconds');
-
-		};
-
-		var strToMoment = function(str){
-			// mengubah string ke moment object hari ini
-			// javascript memang pusing. but its beutiful
-			// misal: 18:00 => akan diubah ke moment berdasarkan hari sekarang jam 18:00
-			// HH => jam 00 - 24
-			// mm => 00 - 59
-			return moment(str, 'HH:mm');
-		};
-		var getJadwal = function(when){
-			prayTimes.setMethod('Karachi');
-			// mendapatkan moment object pada hari ini
-			var toDay = moment();
-			if (when == 'tomorrow') {
-				// jika besok maka tambah satu hari
-				date = toDay.add('1', 'days');
-			} else {
-				// hari ini
-				date = toDay;
-			}
-			
-			var lat = -6.300017; 
-			var lon = 106.670173;
-			return prayTimes.getTimes(date.toDate(), [lat, lon], +7);
-		};
-		var getUpcomingSchedule = function(){
-			var result = null;
-			// looping berdasarkan jadwal hari ini
-			// tergantung urutan di json dari praytime
-			// baru engeh di praytime ada midnight. pantes dari isya ke subuh jedahnya cuma 4 jam
-			// ga taunya itu midnight bukan subuh.
-			// 2 hari nyari ginian baru ketemu. you make me........!
-			// harus di delete lagi json objectnya :(
-			// untung ada di google
-				// karena urutan dari subuh ke isya jadi gk perlu reorder lagi
-				var jedah = getJadwal(); // data json jadwal sholat
-				var hapus ="midnight"; //cari yg mau dihapus
-				//console.log(jedah);
-				delete jedah[hapus]; //hapus midnight biar langsung ke subuh
-				// console.log(jedah);
-
-			$.each(jedah,function(key, val) {
-				momentVal = strToMoment(val);
-				// jika jam sholat belum lewat jam sekarang
-			// jadwal dari praytime dibandingin sama jam sekarang lebih dari nol brrti itu jadwal sepanjutnya
-				if (momentVal.diff(moment()) > 0) {
-					result = strToMoment(val);
-					//console.log(result);
-					return false;
-				}
-			});
-			//console.log(getUpcomingSchedule);
-
-			// jika hari ini sudah melewati sholat isya
-			if (result === null) {
-				result = strToMoment(getJadwal('tomorrow').fajr).add(1, 'days');
-			}
-			return result;
-		};
-
-		/**
-		 * 30 Oktober 2016
-		 * Ta belum beres2. hayang gera lulus
-		 * Muhammad Yana Mulyana
-		 * @param  momentObject end   waktu tujuan
-		 * @return int                jarak waktu
-		 */
-		var duration = function(end){
-			var start  = moment();
-			// mencari jarak berupa detik
-			//jam tujuan dikurangi dengan jam sekarang dengan moment diff dalam bentuk detik
-			//console.log(start); //lihat waktu sekarang dari moment.
-			return end.diff(start, 'seconds');
-
-		};
-		console.log(getJadwal())
-		$(document).ready(function() {
-			var getScheduleFor = getJadwal();
-	    console.log(getScheduleFor);
-	    // var clock = $('.clock').FlipClock(3600);
-			$('#clock').FlipClock({
-				clockFace: 'TwentyFourHourClock'
-			});
-			console.log(getScheduleFor.fajr)
-			var upcoming = getUpcomingSchedule();
-
-			var theCounter = $('#upcomingSchedule').FlipClock(duration(upcoming), {
-				clockFace: 'HourCounter',
-				countdown: true,
-				autoStart: false,
-				//console.log(theCounter)
-				callbacks: {
-					interval:function(){
-						// mendapatkan jeda waktu ke sholat selanjutnya
-						//console.log(theCounter.getTime().time);
-						/* var time = theCounter.getTime().time;
-						 * console.log(time);
-						 * Minggu 17:20 @ Lab sisdig nyari selang sekian menit di flipclockjs.
-						 * jika waktu solat selanjutnya 1 jam lagi maka beri reminder
-						 */
-						//console.log(duration(upcoming));
-						if ( theCounter.getTime().time == 3600 ) {
-							$(".audioSatujam").trigger('load');
-							$(".audioSatujam").trigger('play');
-						}
-						// jika waktu solat selanjutnya 30 menit lagi. maka beri reminder
-						if (theCounter.getTime().time == 1800) {
-							$(".audioTigaPuluh").trigger('load');
-							$(".audioTigaPuluh").trigger('play');
-						}
-						// jika wakto solat sleanjutnya 10 menit lagi, maka beri reminder
-						if (theCounter.getTime().time == 600) {
-							$(".audioSepuluh").trigger('load');
-							$(".audioSepuluh").trigger('play');
-						}
-						
-						// jika wakto solat sleanjutnya lima menit lagi, maka beri reminder
-						if ( theCounter.getTime().time == 300) {
-							$(".audioLima").trigger('load');
-							$(".audioLima").trigger('play');
-							//$(".videokajian").trigger('pause');
-							// 5 minute before adzan change video to slider
-
-
-						}
-						// jika wakto solat sleanjutnya 3 menit lagi, maka beri reminder
-						// if ( theCounter.getTime().time == 180) {
-						// 	$(".audioTiga").trigger('load');
-						// 	$(".audioTiga").trigger('play');
-						// }
-						// jika wakto solat sleanjutnya 1 menit lagi, maka beri reminder
-						if ( theCounter.getTime().time == 60) {
-							//swal("Good job!", "Selamat Menggunakan Aplikasi Kami :) ", "success");
-							$(".audioSatuMenit").trigger('load');
-							$(".audioSatuMenit").trigger('play');
-						}
-
-					},
-					stop: function(){
-						// jalankan counter dengan jarak
-						// ke waktu sholat selanjutnya
-						// var AdzanAudio = new Audio('adzan.mp3');
-						// AdzanAudio.play();
-						$(".videokajian").trigger('pause');
-						$(".audioAdzan").trigger('load');
-						$(".audioAdzan").trigger('play');
-						// ketika sudah lewat 10 menit dari waktu solat beri reminder
-						setTimeout(function() {
-							// var afterTenMinutue = new Audio('after2.mp3');
-							// afterTenMinutue.play();
-							// naha sih kudu ka ms
-							//1 detik = 1000 milisecond
-							// 1 menit = 60000 ms
-							//10 menit = 600000 ms
-							// 20 menit 1200000
-							//reminder pertama
-							upcoming = getUpcomingSchedule();
-							theCounter.setTime(duration(upcoming));
-							theCounter.start();
-							},10000);
-						setTimeout(function() {
-							// var afterTwentyMinute = new Audio('after20.mp3');
-							// afterTwentyMinute.play();
-							// $(".videokajian").trigger('play');
-
-							//20 minute after adzan change slider to video kajian
-							//reminder lagi. gera solat woy
-						},10000);
-					}
-				}
-			});
-			console.log(getJadwal().isha);
-			$('#jsonData').html(JSON.stringify(getJadwal()));
-			theCounter.start();
-			$('.subuh').html(getScheduleFor.fajr);
-			$('.fajar').html(getScheduleFor.sunrise);
-			$('.imsak').html(getScheduleFor.imsak);
-			$('.dzuhur').html(getScheduleFor.dhuhr);
-			$('.ashar').html(getScheduleFor.asr);
-			$('.magrib').html(getScheduleFor.maghrib);
-			$('.isya').html(getScheduleFor.isha);
-			// var clock = $('.clock').FlipClock({});
-		});
