@@ -4,7 +4,10 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index', as: :dashboard
     
     resources :users, except: [:new, :create, :update, :edit, :destroy] do
-      resources :mosques
+      post 'mosque', to: 'mosques#create'
+      resources :mosques, except: [:create] do
+        
+      end
     end
 
   end

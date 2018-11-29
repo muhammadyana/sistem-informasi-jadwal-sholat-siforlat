@@ -1,10 +1,10 @@
-= simple_form_for @mosque, html: { class: "form-horizontal" }, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f|
-  = f.input :name
-  = f.input :address
-  = f.input :latitude
-  = f.input :longitude
-  = f.input :user_id
+= form_for(@mosque, :html => { class: 'form-horizontal', role: 'form' }, url: user_mosque_path(current_user)) do |f| 
+  = f.text_field :name
+  = f.text_field :address
+  = f.text_field :latitude
+  = f.text_field :longitude
+  / = f.association :user
   .form-group
     .col-sm-offset-3.col-sm-9
-      = f.submit nil, class: 'btn btn-primary'
-      = link_to t('.cancel', default: t("helpers.links.cancel")), mosques_path, class: 'btn btn-default'
+      = f.submit "Create", class: 'btn btn-primary'
+      / = link_to t('.cancel', default: t("helpers.links.cancel")), mosques_path, class: 'btn btn-default'
