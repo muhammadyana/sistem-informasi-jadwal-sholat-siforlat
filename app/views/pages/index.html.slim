@@ -31,7 +31,7 @@
           .col-lg-6
             #clock
             center.mb-4
-            	p.text-white Upcoming Prayer Time
+            	p#upcomingPrayer.text-white
 
             #upcomingSchedule
     /! SVG separator
@@ -42,7 +42,7 @@
 
 section.section.section-lg.pt-lg-0.mt--200
   .container-fluid
-    .row.justify-content-center
+    #prayerSchedule.row.justify-content-center
       .col-lg-12
         .row.row-grid
           .col-lg-2
@@ -124,7 +124,7 @@ section.section.section-lg.pt-lg-0.mt--200
 
 - content_for :js_plugin
 	javascript:
-
+		$('#prayerSchedule').hide();
 		navigator.geolocation.getCurrentPosition((loc) => {
 			console.log('your location is: [', loc.coords.latitude, ',', loc.coords.longitude, ']');
 			
@@ -304,6 +304,8 @@ section.section.section-lg.pt-lg-0.mt--200
 				$('.ashar').html(getScheduleFor.asr);
 				$('.magrib').html(getScheduleFor.maghrib);
 				$('.isya').html(getScheduleFor.isha);
+				$('#upcomingPrayer').html('Upcoming Prayer Time');
+				$('#prayerSchedule').show();
 				// var clock = $('.clock').FlipClock({});
 			});
 		});
