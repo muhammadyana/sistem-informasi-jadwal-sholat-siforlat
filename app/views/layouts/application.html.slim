@@ -44,7 +44,8 @@ html lang="en"
             a.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
               .media.align-items-center
                 span.avatar.avatar-sm.rounded-circle
-                  img alt=("Image placeholder") src="https://res.cloudinary.com/muhammadyana/image/upload/v1543153812/siforlat/siforlat-icon.png" /
+                  = gravatar_for(current_user)
+                  / img alt=("Image placeholder") src="https://res.cloudinary.com/muhammadyana/image/upload/v1543153812/siforlat/siforlat-icon.png" /
             .dropdown-menu.dropdown-menu-arrow.dropdown-menu-right
               .dropdown-header.noti-title
                 h6.text-overflow.m-0 Welcome!
@@ -151,9 +152,10 @@ html lang="en"
               a.nav-link.pr-0 aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
                 .media.align-items-center
                   span.avatar.avatar-sm.rounded-circle
-                    img alt=("Image placeholder") src="https://res.cloudinary.com/muhammadyana/image/upload/v1543153812/siforlat/siforlat-icon.png" /
+                    = gravatar_for(current_user)
+                    / img alt=("Image placeholder") src="https://res.cloudinary.com/muhammadyana/image/upload/v1543153812/siforlat/siforlat-icon.png" /
                   .media-body.ml-2.d-none.d-lg-block
-                    span.mb-0.text-sm.font-weight-bold Abdussalam
+                    span.mb-0.text-sm.font-weight-bold = current_user.full_name
                 .dropdown-menu.dropdown-menu-arrow.dropdown-menu-right
                   .dropdown-header.noti-title
                     h6.text-overflow.m-0 Welcome!
