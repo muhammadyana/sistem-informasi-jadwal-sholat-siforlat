@@ -5,12 +5,14 @@ Rails.application.routes.draw do
     
     resources :users, except: [:new, :create, :update, :edit, :destroy] do
       post 'mosque', to: 'mosques#create'
+      patch 'mosque', to: 'mosques#create'
       resources :mosques, except: [:create] do
         
       end
     end
 
   end
+
   devise_for :users, controllers: { 
   	:sessions             => 'users/sessions',
     :registrations        => 'users/registrations',
@@ -19,11 +21,14 @@ Rails.application.routes.draw do
     :confirmations        => 'users/confirmations',
     :passwords            => 'users/passwords'
   }
+  
   devise_scope :user do
     delete 'logout', to: 'devise/sessions#destroy'
   end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
   get 'pages/index'
   root 'pages#index'
   

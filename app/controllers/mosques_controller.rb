@@ -25,7 +25,7 @@ class MosquesController < InheritedResources::Base
 
     respond_to do |format|
       if @mosque.save
-        format.html { redirect_to user_mosque_path(current_user), notice: 'Mosque was successfully created.' }
+        format.html { redirect_to user_mosques_path(current_user), notice: 'Mosque was successfully created.' }
         format.json { render :show, status: :created, location: @mosque }
       else
         format.html { render :new }
