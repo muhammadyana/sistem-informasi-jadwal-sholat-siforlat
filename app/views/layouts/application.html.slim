@@ -21,76 +21,121 @@ html lang="en"
     = javascript_include_tag "application"
 
   body.white-content
-    .wrapper
-      /.sidebar data="green"
-        .sidebar-wrapper
-          .logo
-            a.simple-text.logo-mini href="javascript:void(0)" 
-              | CT
-            a.simple-text.logo-normal href="javascript:void(0)" 
-              | Creative Tim
-          ul.nav
-            li.active
-              a href="./dashboard.html" 
-                i.tim-icons.icon-chart-pie-36
-                p Dashboard
-            li
-              a href="./icons.html" 
-                i.tim-icons.icon-atom
-                p Icons
-            li
-              a href="./map.html" 
-                i.tim-icons.icon-pin
-                p Maps
-            li
-              a href="./notifications.html" 
-                i.tim-icons.icon-bell-55
-                p Notifications
-            li
-              a href="./user.html" 
-                i.tim-icons.icon-single-02
-                p User Profile
-            li
-              a href="./tables.html" 
-                i.tim-icons.icon-puzzle-10
-                p Table List
-            li
-              a href="./typography.html" 
-                i.tim-icons.icon-align-center
-                p Typography
-            li
-              a href="./rtl.html" 
-                i.tim-icons.icon-world
-                p RTL Support
-            li.active-pro
-              a href="./upgrade.html" 
-                i.tim-icons.icon-spaceship
-                p Upgrade to PRO
-      .main-panel
-        /nav.navbar.navbar-expand-lg.navbar-absolute.navbar-transparent
-          .container-fluid
-            .navbar-wrapper
-              .navbar-toggle.d-inline
-                button.navbar-toggler type="button" 
-                  span.navbar-toggler-bar.bar1
-                  span.navbar-toggler-bar.bar2
-                  span.navbar-toggler-bar.bar3
-              a.navbar-brand href="javascript:void(0)"  Dashboard
-            button.navbar-toggler aria-expanded="false" aria-label=("Toggle navigation") data-target="#navigation" data-toggle="collapse" type="button" 
-              span.navbar-toggler-bar.navbar-kebab
-              span.navbar-toggler-bar.navbar-kebab
-              span.navbar-toggler-bar.navbar-kebab
-            #navigation.collapse.navbar-collapse
-              ul.navbar-nav.ml-auto
-                li.search-bar.input-group
-                  /button#search-button.btn.btn-link data-target="#searchModal" data-toggle="modal" 
-                    i.tim-icons.icon-zoom-split
-                    span.d-lg-none.d-md-block Search
+    nav#sidenav-main.navbar.navbar-vertical.fixed-left.navbar-expand-md.navbar-light.bg-white
+      .container-fluid
+        /! Toggler
+        button.navbar-toggler aria-controls="sidenav-main" aria-expanded="false" aria-label=("Toggle navigation") data-target="#sidenav-collapse-main" data-toggle="collapse" type="button" 
+          span.navbar-toggler-icon
+        /! Brand
+        a.navbar-brand.pt-0 href="../index.html" 
+          img.navbar-brand-img alt="Sistem Informasi Jadwal Sholat" src="https://res.cloudinary.com/muhammadyana/image/upload/v1543590364/siforlat/siforlat-logo-black.png" /
+        /! User
+        ul.nav.align-items-center.d-md-none
+          li.nav-item.dropdown
+            a.nav-link.nav-link-icon aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+              i.ni.ni-bell-55
+            .dropdown-menu.dropdown-menu-arrow.dropdown-menu-right aria-labelledby="navbar-default_dropdown_1" 
+              a.dropdown-item href="#"  Action
+              a.dropdown-item href="#"  Another action
+              .dropdown-divider
+              a.dropdown-item href="#"  Something else here
+          li.nav-item.dropdown
+            a.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+            .media.align-items-center
+              span.avatar.avatar-sm.rounded-circle
+                img alt=("Image placeholder") src="../assets/img/theme/team-1-800x800.jpg" /
+            .dropdown-menu.dropdown-menu-arrow.dropdown-menu-right
+              .dropdown-header.noti-title
+                h6.text-overflow.m-0 Welcome!
+              a.dropdown-item href="../examples/profile.html" 
+                i.ni.ni-single-02
+                span My profile
+              a.dropdown-item href="../examples/profile.html" 
+                i.ni.ni-settings-gear-65
+                span Settings
+              a.dropdown-item href="../examples/profile.html" 
+                i.ni.ni-calendar-grid-58
+                span Activity
+              a.dropdown-item href="../examples/profile.html" 
+                i.ni.ni-support-16
+                span Support
+              .dropdown-divider
+              a.dropdown-item href="#!" 
+                i.ni.ni-user-run
+                span Logout
+        /! Collapse
+        #sidenav-collapse-main.collapse.navbar-collapse
+          /! Collapse header
+          .navbar-collapse-header.d-md-none
+            .row
+              .col-6.collapse-brand
+                a href="../index.html" 
+                  img src="../assets/img/brand/blue.png" /
+              .col-6.collapse-close
+                button.navbar-toggler aria-controls="sidenav-main" aria-expanded="false" aria-label=("Toggle sidenav") data-target="#sidenav-collapse-main" data-toggle="collapse" type="button" 
+                  span
+                  span
+          /! Form
+          form.mt-4.mb-3.d-md-none
+            .input-group.input-group-rounded.input-group-merge
+              input.form-control.form-control-rounded.form-control-prepended aria-label="Search" placeholder="Search" type="search" /
+              .input-group-prepend
+                .input-group-text
+                  span.fa.fa-search
+          /! Navigation
+          ul.navbar-nav
+            li.nav-item
+              a.nav-link href="../index.html" 
+                i.ni.ni-tv-2.text-primary
+                | Dashboard
+            li.nav-item
+              a.nav-link href="../examples/icons.html" 
+                i.ni.ni-planet.text-blue
+                | Icons
+            li.nav-item
+              a.nav-link href="../examples/maps.html" 
+                i.ni.ni-pin-3.text-orange
+                | Maps
+            li.nav-item
+              a.nav-link.active href="../examples/profile.html" 
+                i.ni.ni-single-02.text-yellow
+                | User profile
+            li.nav-item
+              a.nav-link href="../examples/tables.html" 
+                i.ni.ni-bullet-list-67.text-red
+                | Tables
+            li.nav-item
+              a.nav-link href="../examples/login.html" 
+                i.ni.ni-key-25.text-info
+                | Login
+            li.nav-item
+              a.nav-link href="../examples/register.html" 
+                i.ni.ni-circle-08.text-pink
+                | Register
+          /! Divider
+          hr.my-3/
+          /! Heading
+          h6.navbar-heading.text-muted Documentation
+          /! Navigation
+          ul.navbar-nav.mb-md-3
+            li.nav-item
+              a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" 
+                i.ni.ni-spaceship
+                | Getting started
+            li.nav-item
+              a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" 
+                i.ni.ni-palette
+                | Foundation
+            li.nav-item
+              a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" 
+                i.ni.ni-ui-04
+                | Components
+
                 
-        .content
-          - if user_signed_in?
-            = link_to 'Logout', logout_path, method: :delete, class: "nav-item dropdown-item"
-          = yield
+    .content
+      - if user_signed_in?
+        = link_to 'Logout', logout_path, method: :delete, class: "nav-item dropdown-item"
+      = yield
     = yield :js_plugin
   - if notice
     javascript:
