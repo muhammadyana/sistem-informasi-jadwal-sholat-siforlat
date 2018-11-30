@@ -28,7 +28,7 @@ html lang="en"
         button.navbar-toggler aria-controls="sidenav-main" aria-expanded="false" aria-label=("Toggle navigation") data-target="#sidenav-collapse-main" data-toggle="collapse" type="button" 
           span.navbar-toggler-icon
         /! Brand
-        a.navbar-brand.pt-0 href="../index.html" 
+        = link_to dashboard_path, class: "navbar-brand pt-0" do
           img.navbar-brand-img alt="Sistem Informasi Jadwal Sholat" src="https://res.cloudinary.com/muhammadyana/image/upload/v1543590364/siforlat/siforlat-logo-black.png" /
         /! User
         ul.nav.align-items-center.d-md-none
@@ -42,9 +42,9 @@ html lang="en"
               a.dropdown-item href="#"  Something else here
           li.nav-item.dropdown
             a.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
-            .media.align-items-center
-              span.avatar.avatar-sm.rounded-circle
-                img alt=("Image placeholder") src="../assets/img/theme/team-1-800x800.jpg" /
+              .media.align-items-center
+                span.avatar.avatar-sm.rounded-circle
+                  img alt=("Image placeholder") src="https://res.cloudinary.com/muhammadyana/image/upload/v1543153812/siforlat/siforlat-icon.png" /
             .dropdown-menu.dropdown-menu-arrow.dropdown-menu-right
               .dropdown-header.noti-title
                 h6.text-overflow.m-0 Welcome!
@@ -71,7 +71,7 @@ html lang="en"
             .row
               .col-6.collapse-brand
                 a href="../index.html" 
-                  img src="../assets/img/brand/blue.png" /
+                  img src="https://res.cloudinary.com/muhammadyana/image/upload/v1543590364/siforlat/siforlat-logo-black.png" /
               .col-6.collapse-close
                 button.navbar-toggler aria-controls="sidenav-main" aria-expanded="false" aria-label=("Toggle sidenav") data-target="#sidenav-collapse-main" data-toggle="collapse" type="button" 
                   span
