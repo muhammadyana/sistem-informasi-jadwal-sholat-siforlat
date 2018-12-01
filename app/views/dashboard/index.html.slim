@@ -4,76 +4,78 @@
     .header-body
       /! Card stats
       .row
-			  .col-xl-2.col-lg-6.ml-auto
-			    .card.card-stats.mb-4.mb-xl-0
-			      .card-body
-			        .row
-			          .col
-			            h5.card-title.text-uppercase.text-muted.mb-0 Imsak
-			            span.h2.font-weight-bold.mb-0.imsak
-			          .col-auto
-			            .icon.icon-shape.bg-success.text-white.rounded-circle.shadow
-			              i.ni.ni-istanbul
-			        /p.mt-3.mb-0.text-muted.text-sm
-			          span.text-success.mr-2
-			            i.fa.fa-arrow-up
-			            | 3.48%
-			          span.text-nowrap Since last month
-			  .col-xl-2.col-lg-6
-			    .card.card-stats.mb-4.mb-xl-0
-			      .card-body
-			        .row
-			          .col
-			            h5.card-title.text-uppercase.text-muted.mb-0 Subuh
-			            span.h2.font-weight-bold.mb-0.subuh
-			          .col-auto
-			            .icon.icon-shape.bg-warning.text-white.rounded-circle.shadow
-			              i.ni.ni-istanbul
-			        
-			  .col-xl-2.col-lg-6
-			    .card.card-stats.mb-4.mb-xl-0
-			      .card-body
-			        .row
-			          .col
-			            h5.card-title.text-uppercase.text-muted.mb-0 Dzuhur
-			            span.h2.font-weight-bold.mb-0.dzuhur
-			          .col-auto
-			            .icon.icon-shape.bg-yellow.text-white.rounded-circle.shadow
-			              i.ni.ni-istanbul
-			        
-			  .col-xl-2.col-lg-6
-			    .card.card-stats.mb-4.mb-xl-0
-			      .card-body
-			        .row
-			          .col
-			            h5.card-title.text-uppercase.text-muted.mb-0 Ashar
-			            span.h2.font-weight-bold.mb-0.ashar
-			          .col-auto
-			            .icon.icon-shape.bg-yellow.text-white.rounded-circle.shadow
-			              i.ni.ni-istanbul
-			        
-			  .col-xl-2.col-lg-6
-			    .card.card-stats.mb-4.mb-xl-0
-			      .card-body
-			        .row
-			          .col
-			            h5.card-title.text-uppercase.text-muted.mb-0 Maghrib
-			            span.h2.font-weight-bold.mb-0.maghrib
-			          .col-auto
-			            .icon.icon-shape.bg-info.text-white.rounded-circle.shadow
-			              i.ni.ni-istanbul
-			        
-			  .col-xl-2.col-lg-6.mr-auto
-			    .card.card-stats.mb-4.mb-xl-0
-			      .card-body
-			        .row
-			          .col
-			            h5.card-title.text-uppercase.text-muted.mb-0 Isya
-			            span.h2.font-weight-bold.mb-0.isha
-			          .col-auto
-			            .icon.icon-shape.bg-info.text-white.rounded-circle.shadow
-			              i.ni.ni-istanbul
-			        
+				- unless current_user.mosque.blank?
+				  .col-xl-2.col-lg-6.ml-auto
+				    .card.card-stats.mb-4.mb-xl-0
+				      .card-body
+				        .row
+				          .col
+				            h5.card-title.text-uppercase.text-muted.mb-0 Imsak
+				            span.h2.font-weight-bold.mb-0.imsak
+				          .col-auto
+				            .icon.icon-shape.bg-success.text-white.rounded-circle.shadow
+				              i.ni.ni-istanbul
+				        /p.mt-3.mb-0.text-muted.text-sm
+				          span.text-success.mr-2
+				            i.fa.fa-arrow-up
+				            | 3.48%
+				          span.text-nowrap Since last month
+				  .col-xl-2.col-lg-6
+				    .card.card-stats.mb-4.mb-xl-0
+				      .card-body
+				        .row
+				          .col
+				            h5.card-title.text-uppercase.text-muted.mb-0 Subuh
+				            span.h2.font-weight-bold.mb-0.subuh
+				          .col-auto
+				            .icon.icon-shape.bg-warning.text-white.rounded-circle.shadow
+				              i.ni.ni-istanbul
+				        
+				  .col-xl-2.col-lg-6
+				    .card.card-stats.mb-4.mb-xl-0
+				      .card-body
+				        .row
+				          .col
+				            h5.card-title.text-uppercase.text-muted.mb-0 Dzuhur
+				            span.h2.font-weight-bold.mb-0.dzuhur
+				          .col-auto
+				            .icon.icon-shape.bg-yellow.text-white.rounded-circle.shadow
+				              i.ni.ni-istanbul
+				        
+				  .col-xl-2.col-lg-6
+				    .card.card-stats.mb-4.mb-xl-0
+				      .card-body
+				        .row
+				          .col
+				            h5.card-title.text-uppercase.text-muted.mb-0 Ashar
+				            span.h2.font-weight-bold.mb-0.ashar
+				          .col-auto
+				            .icon.icon-shape.bg-yellow.text-white.rounded-circle.shadow
+				              i.ni.ni-istanbul
+				        
+				  .col-xl-2.col-lg-6
+				    .card.card-stats.mb-4.mb-xl-0
+				      .card-body
+				        .row
+				          .col
+				            h5.card-title.text-uppercase.text-muted.mb-0 Maghrib
+				            span.h2.font-weight-bold.mb-0.maghrib
+				          .col-auto
+				            .icon.icon-shape.bg-info.text-white.rounded-circle.shadow
+				              i.ni.ni-istanbul
+				        
+				  .col-xl-2.col-lg-6.mr-auto
+				    .card.card-stats.mb-4.mb-xl-0
+				      .card-body
+				        .row
+				          .col
+				            h5.card-title.text-uppercase.text-muted.mb-0 Isya
+				            span.h2.font-weight-bold.mb-0.isha
+				          .col-auto
+				            .icon.icon-shape.bg-info.text-white.rounded-circle.shadow
+				              i.ni.ni-istanbul
+				- else
+					p.text-white Please register a mosque   
 
 
 .container-fluid.mt--7
@@ -251,30 +253,30 @@
         .copyright.text-center.text-xl-left.text-muted
           | &copy; 2018
           a.font-weight-bold.ml-1 href="#" target="_blank"  Siforlat - Sistem Informasi Jadwal Sholat
-
-- content_for :js_plugin
-	javascript:
-		var getPrayerTimes = function(when){
-		prayTimes.setMethod('Karachi');
-		// mendapatkan moment object pada hari ini
-			var toDay = moment();
-			if (when == 'tomorrow') {
-				// jika besok maka tambah satu hari
-				date = toDay.add('1', 'days');
-			} else {
-				// hari ini
-				date = toDay;
-			}
-			
-			return prayTimes.getTimes(date.toDate(), [-7.0909109, 107.668887], +7);
-		};
-		console.log(getPrayerTimes());
-		var getPrayerTimesFor = getPrayerTimes()
-		$('.subuh').html(getPrayerTimesFor.fajr)
-		$('.imsak').html(getPrayerTimesFor.imsak)
-		$('.dzuhur').html(getPrayerTimesFor.dhuhr)
-		$('.ashar').html(getPrayerTimesFor.asr)
-		$('.maghrib').html(getPrayerTimesFor.maghrib)
-		$('.isha').html(getPrayerTimesFor.isha)
+- unless current_user.mosque.blank?
+	- content_for :js_plugin
+		javascript:
+			var getPrayerTimes = function(when){
+			prayTimes.setMethod('Karachi');
+			// mendapatkan moment object pada hari ini
+				var toDay = moment();
+				if (when == 'tomorrow') {
+					// jika besok maka tambah satu hari
+					date = toDay.add('1', 'days');
+				} else {
+					// hari ini
+					date = toDay;
+				}
+				
+				return prayTimes.getTimes(date.toDate(), [-7.0909109, 107.668887], +7);
+			};
+			console.log(getPrayerTimes());
+			var getPrayerTimesFor = getPrayerTimes()
+			$('.subuh').html(getPrayerTimesFor.fajr)
+			$('.imsak').html(getPrayerTimesFor.imsak)
+			$('.dzuhur').html(getPrayerTimesFor.dhuhr)
+			$('.ashar').html(getPrayerTimesFor.asr)
+			$('.maghrib').html(getPrayerTimesFor.maghrib)
+			$('.isha').html(getPrayerTimesFor.isha)
 
       
