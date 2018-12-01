@@ -176,14 +176,6 @@ html lang="en"
                     = link_to logout_path, method: :delete, class: "dropdown-item"
                       i.ni.ni-user-run
                       span Logout
-      / header 
-      .header.bg-gradient-info.pb-8.pt-5.pt-md-8
-        .container-fluid
-          .header-body
-            /! Card stats
-            
-
-      
       = yield
     = yield :js_plugin
   - if notice
