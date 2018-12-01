@@ -257,8 +257,11 @@
 	- content_for :js_plugin
 		javascript:
 			var getPrayerTimes = function(when){
-			prayTimes.setMethod('Karachi');
-			// mendapatkan moment object pada hari ini
+				prayTimes.setMethod('Karachi');
+				var latitude = "#{current_user.mosque.latitude}"
+				var longitude = "#{current_user.mosque.longitude}"
+				
+				// mendapatkan moment object pada hari ini
 				var toDay = moment();
 				if (when == 'tomorrow') {
 					// jika besok maka tambah satu hari
@@ -268,7 +271,7 @@
 					date = toDay;
 				}
 				
-				return prayTimes.getTimes(date.toDate(), [-7.0909109, 107.668887], +7);
+				return prayTimes.getTimes(date.toDate(), [latitude, longitude], +7);
 			};
 			console.log(getPrayerTimes());
 			var getPrayerTimesFor = getPrayerTimes()
