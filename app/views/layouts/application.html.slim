@@ -87,51 +87,51 @@ html lang="en"
           /! Navigation
           ul.navbar-nav
             li.nav-item
-              a.nav-link href="../index.html" 
+              = link_to dashboard_path, class: "nav-link" do
                 i.ni.ni-tv-2.text-primary
                 | Dashboard
-            li.nav-item
-              a.nav-link href="../examples/icons.html" 
-                i.ni.ni-planet.text-blue
-                | Icons
-            li.nav-item
-              a.nav-link href="../examples/maps.html" 
-                i.ni.ni-pin-3.text-orange
-                | Maps
-            li.nav-item
-              a.nav-link.active href="../examples/profile.html" 
-                i.ni.ni-single-02.text-yellow
-                | User profile
-            li.nav-item
-              a.nav-link href="../examples/tables.html" 
-                i.ni.ni-bullet-list-67.text-red
-                | Tables
-            li.nav-item
-              a.nav-link href="../examples/login.html" 
-                i.ni.ni-key-25.text-info
-                | Login
-            li.nav-item
-              a.nav-link href="../examples/register.html" 
-                i.ni.ni-circle-08.text-pink
-                | Register
+            / li.nav-item
+            /   a.nav-link href="../examples/icons.html" 
+            /     i.ni.ni-planet.text-blue
+            /     | Icons
+            / li.nav-item
+            /   a.nav-link href="../examples/maps.html" 
+            /     i.ni.ni-pin-3.text-orange
+            /     | Maps
+            / li.nav-item
+            /   a.nav-link.active href="../examples/profile.html" 
+            /     i.ni.ni-single-02.text-yellow
+            /     | User profile
+            / li.nav-item
+            /   a.nav-link href="../examples/tables.html" 
+            /     i.ni.ni-bullet-list-67.text-red
+            /     | Tables
+            / li.nav-item
+            /   a.nav-link href="../examples/login.html" 
+            /     i.ni.ni-key-25.text-info
+            /     | Login
+            / li.nav-item
+            /   a.nav-link href="../examples/register.html" 
+            /     i.ni.ni-circle-08.text-pink
+            /     | Register
           /! Divider
           hr.my-3/
           /! Heading
-          h6.navbar-heading.text-muted Documentation
-          /! Navigation
-          ul.navbar-nav.mb-md-3
-            li.nav-item
-              a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" 
-                i.ni.ni-spaceship
-                | Getting started
-            li.nav-item
-              a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" 
-                i.ni.ni-palette
-                | Foundation
-            li.nav-item
-              a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" 
-                i.ni.ni-ui-04
-                | Components
+          / h6.navbar-heading.text-muted Documentation
+          / /! Navigation
+          / ul.navbar-nav.mb-md-3
+          /   li.nav-item
+          /     a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" 
+          /       i.ni.ni-spaceship
+          /       | Getting started
+          /   li.nav-item
+          /     a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" 
+          /       i.ni.ni-palette
+          /       | Foundation
+          /   li.nav-item
+          /     a.nav-link href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" 
+          /       i.ni.ni-ui-04
+          /       | Components
     .main-content
       / top navbar
       nav#navbar-main.navbar.navbar-top.navbar-expand-md.navbar-dark
@@ -139,7 +139,7 @@ html lang="en"
           /! Brand
           a.h4.mb-0.text-white.text-uppercase.d-none.d-lg-inline-block href="../index.html"  = current_user.mosque.name if current_user.mosque.present?
           /! Form
-          form.navbar-search.navbar-search-dark.form-inline.mr-3.d-none.d-md-flex.ml-lg-auto
+          /form.navbar-search.navbar-search-dark.form-inline.mr-3.d-none.d-md-flex.ml-lg-auto
             .form-group.mb-0
               .input-group.input-group-alternative
                 .input-group-prepend
