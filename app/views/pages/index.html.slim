@@ -32,6 +32,8 @@
             #clock
             center.mb-4
             	p#upcomingPrayer.text-white
+            	p#gettingCurrentLocation.text-white
+            	#loader
 						#timeDiv
             	#upcomingSchedule
     /! SVG separator
@@ -125,6 +127,7 @@ section.section.section-lg.pt-lg-0.mt--200
 - content_for :js_plugin
 	javascript:
 		$('#prayerSchedule').hide(100);
+		$('#gettingCurrentLocation').html('Getting Your current location.......' + '<br>'+'Please allow location access from your browser to get your current location');
 		navigator.geolocation.getCurrentPosition((loc) => {
 			console.log('your location is: [', loc.coords.latitude, ',', loc.coords.longitude, ']');
 			
@@ -307,6 +310,8 @@ section.section.section-lg.pt-lg-0.mt--200
 				$('.isya').html(getScheduleFor.isha);
 				$('#upcomingPrayer').html('Upcoming Prayer Time');
 				$('#prayerSchedule').show("fast");
+				$('#gettingCurrentLocation').hide();
+				$('#loader').hide();
 				// var clock = $('.clock').FlipClock({});
 			});
 		});
