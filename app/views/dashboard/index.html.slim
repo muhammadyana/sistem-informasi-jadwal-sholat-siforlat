@@ -10,7 +10,7 @@
 			        .row
 			          .col
 			            h5.card-title.text-uppercase.text-muted.mb-0 Imsak
-			            span.h2.font-weight-bold.mb-0 03:50
+			            span.h2.font-weight-bold.mb-0.imsak
 			          .col-auto
 			            .icon.icon-shape.bg-success.text-white.rounded-circle.shadow
 			              i.ni.ni-istanbul
@@ -24,8 +24,8 @@
 			      .card-body
 			        .row
 			          .col
-			            h5.card-title.text-uppercase.text-muted.mb-0 New users
-			            span.h2.font-weight-bold.mb-0 2,356
+			            h5.card-title.text-uppercase.text-muted.mb-0 Subuh
+			            span.h2.font-weight-bold.mb-0.subuh
 			          .col-auto
 			            .icon.icon-shape.bg-warning.text-white.rounded-circle.shadow
 			              i.fas.fa-chart-pie
@@ -269,4 +269,8 @@
 			return prayTimes.getTimes(date.toDate(), [-7.0909109, 107.668887], +7);
 		};
 		console.log(getPrayerTimes());
+		var getPrayerTimesFor = getPrayerTimes()
+		$('.subuh').html(getPrayerTimesFor.fajr)
+		$('.imsak').html(getPrayerTimesFor.imsak)
+
       
