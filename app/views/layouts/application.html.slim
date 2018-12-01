@@ -137,7 +137,7 @@ html lang="en"
       nav#navbar-main.navbar.navbar-top.navbar-expand-md.navbar-dark
         .container-fluid
           /! Brand
-          a.h4.mb-0.text-white.text-uppercase.d-none.d-lg-inline-block href="../index.html"  User profile
+          a.h4.mb-0.text-white.text-uppercase.d-none.d-lg-inline-block href="../index.html"  = current_user.mosque.name if current_user.mosque.present?
           /! Form
           form.navbar-search.navbar-search-dark.form-inline.mr-3.d-none.d-md-flex.ml-lg-auto
             .form-group.mb-0
