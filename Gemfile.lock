@@ -169,6 +169,10 @@ GEM
     devise_token_auth (1.0.0)
       devise (> 3.5.2, < 4.6)
       rails (>= 4.2.0, < 6)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     draper (3.0.1)
       actionpack (~> 5.0)
       activemodel (~> 5.0)
@@ -448,6 +452,7 @@ DEPENDENCIES
   delayed_job_active_record (~> 4.1.3)
   devise!
   devise_token_auth
+  dotenv-rails
   draper (~> 3.0.0)
   faker (~> 1.7.3)
   figaro (~> 1.1.1)
