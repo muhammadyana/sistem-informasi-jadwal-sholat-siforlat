@@ -91,6 +91,13 @@ group :development do
   # gem 'binding_of_caller', '~> 0.7.2'
   gem 'letter_opener', '~> 1.4.1'
   gem 'rails_best_practices', '~> 1.19.0'
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rails-db'
 end
 
 group :test do
