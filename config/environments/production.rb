@@ -52,7 +52,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -108,6 +108,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.action_controller.default_url_options = { host: "https://siforlat.com" }
-  config.action_mailer.default_url_options = { host: 'https://siforlat.com' }
-  # config.default_url_options[:host] = 'http://dashboard.medic-trust.com'
+  config.action_mailer.default_url_options = { host: "https://siforlat.com" }
 end
+Rails.application.routes.default_url_options[:host] = 'https://siforlat.com'
