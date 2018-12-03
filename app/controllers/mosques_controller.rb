@@ -12,7 +12,7 @@ class MosquesController < InheritedResources::Base
 
   
   def new
-    @mosque = current_user.create_mosque
+    @mosque = Mosque.new
   end
 
   
