@@ -18,4 +18,5 @@ class Mosque < ApplicationRecord
   friendly_id :name, use: :slugged
   belongs_to :user
   accepts_nested_attributes_for :user
+  validates :latitude, :longitude, :name, presence: true
 end
