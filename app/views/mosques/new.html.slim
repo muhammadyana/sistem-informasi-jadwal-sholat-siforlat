@@ -1,4 +1,26 @@
-- model_class = Mosque
-.page-header
-  h1=t '.title', default: [:'helpers.titles.new', 'New %{model}'], model: model_class.model_name.human.titleize
-= render partial: "form"
+/ .header.bg-gradient-info.pb-8.pt-5.pt-md-8
+/   .container-fluid
+/     .header-body
+
+.header.bg-gradient-info.pb-8.pt-5.pt-md-8
+  /! Mask
+  / span.mask.bg-gradient-default.opacity-8
+  /! Header container
+  .container-fluid.d-flex.align-items-center
+    .row
+      /.col-lg-7.col-md-10
+        h1.display-2.text-white Hello Jesse
+        p.text-white.mt-0.mb-5 This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks
+        a.btn.btn-info href="#!"  Edit profile
+.container-fluid.mt--7
+	.row
+		.col-lg-10.offset-lg-1
+		  .card.bg-secondary.shadow
+		    .card-header.bg-white.border-0
+		      .row.align-items-center
+		        .col-8
+		          h3.mb-0 Register New Mosque
+		        / .col-4.text-right
+		          a.btn.btn-sm.btn-primary href="#!"  Settings
+		    .card-body
+		      = render partial: "form"	

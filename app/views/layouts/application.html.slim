@@ -177,6 +177,15 @@ html lang="en"
                       i.ni.ni-user-run
                       span Logout
       = yield
+      /! Footer
+      .container-fluid
+        footer.footer
+          .row.align-items-center.justify-content-xl-between
+            .col-xl-6
+              .copyright.text-center.text-xl-left.text-muted
+                | &copy; 2018
+                a.font-weight-bold.ml-1 href="#" target="_blank"  Siforlat - Sistem Informasi Jadwal Sholat
+    
     = yield :js_plugin
   - if notice
     javascript:

@@ -1,4 +1,57 @@
-= form_for(@mosque, :html => { class: 'form-horizontal', role: 'form' }, url: user_mosque_path(current_user)) do |f| 
+
+form
+  h6.heading-small.text-muted.mb-4 User information
+  .pl-lg-4
+    .row
+      .col-lg-6
+        .form-group
+          label.form-control-label for="input-username"  Username
+          input#input-username.form-control.form-control-alternative placeholder="Username" type="text" value="lucky.jesse" /
+      .col-lg-6
+        .form-group
+          label.form-control-label for="input-email"  Email address
+          input#input-email.form-control.form-control-alternative placeholder="jesse@example.com" type="email" /
+    .row
+      .col-lg-6
+        .form-group
+          label.form-control-label for="input-first-name"  First name
+          input#input-first-name.form-control.form-control-alternative placeholder=("First name") type="text" value="Lucky" /
+      .col-lg-6
+        .form-group
+          label.form-control-label for="input-last-name"  Last name
+          input#input-last-name.form-control.form-control-alternative placeholder=("Last name") type="text" value="Jesse" /
+  hr.my-4/
+  /! Address
+  h6.heading-small.text-muted.mb-4 Contact information
+  .pl-lg-4
+    .row
+      .col-md-12
+        .form-group
+          label.form-control-label for="input-address"  Address
+          input#input-address.form-control.form-control-alternative placeholder=("Home Address") type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" /
+    .row
+      .col-lg-4
+        .form-group
+          label.form-control-label for="input-city"  City
+          input#input-city.form-control.form-control-alternative placeholder="City" type="text" value=("New York") /
+      .col-lg-4
+        .form-group
+          label.form-control-label for="input-country"  Country
+          input#input-country.form-control.form-control-alternative placeholder="Country" type="text" value=("United States") /
+      .col-lg-4
+        .form-group
+          label.form-control-label for="input-country"  Postal code
+          input#input-postal-code.form-control.form-control-alternative placeholder=("Postal code") type="number" /
+  hr.my-4/
+  /! Description
+  h6.heading-small.text-muted.mb-4 About me
+  .pl-lg-4
+    .form-group
+      label About Me
+      textarea.form-control.form-control-alternative placeholder=("A few words about you ...") rows="4"  A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.
+
+
+/= form_for(@mosque, :html => { class: 'form-horizontal', role: 'form' }, url: user_mosque_path(current_user)) do |f| 
   = f.text_field :name
   = f.text_field :address
   = f.text_field :latitude

@@ -246,13 +246,7 @@
                     div
                       .progress
                         .progress-bar.bg-gradient-warning aria-valuemax="100" aria-valuemin="0" aria-valuenow="30" role="progressbar" style=("width: 30%;") 
-  /! Footer
-  footer.footer
-    .row.align-items-center.justify-content-xl-between
-      .col-xl-6
-        .copyright.text-center.text-xl-left.text-muted
-          | &copy; 2018
-          a.font-weight-bold.ml-1 href="#" target="_blank"  Siforlat - Sistem Informasi Jadwal Sholat
+  
 - unless current_user.mosque.blank?
 	- content_for :js_plugin
 		javascript:
