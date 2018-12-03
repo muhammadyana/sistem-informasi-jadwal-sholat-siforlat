@@ -32,6 +32,7 @@ Rails.application.configure do
   config.assets.digest = true
   config.assets.enabled = true
   config.assets.initialize_on_precompile = true
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
