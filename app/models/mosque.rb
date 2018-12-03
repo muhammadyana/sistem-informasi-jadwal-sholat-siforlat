@@ -11,6 +11,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  slug       :string
+#  city       :string
+#  zipcode    :string
+#  country    :string
+#  iqomah     :integer
 #
 
 class Mosque < ApplicationRecord

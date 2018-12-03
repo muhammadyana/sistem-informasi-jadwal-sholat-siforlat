@@ -28,6 +28,7 @@
 #  uid                    :string           default(""), not null
 #  tokens                 :json
 #  username               :string
+#  slug                   :string
 #
 
 class UserSerializer < ActiveModel::Serializer
