@@ -1,29 +1,32 @@
 
-form
-  h6.heading-small.text-muted.mb-4 User information
+= form_for(@mosque, :html => { class: 'form-horizontal', role: 'form' }, url: user_mosque_path(current_user)) do |f| 
+  h6.heading-small.text-muted.mb-4 Mosque information
   .pl-lg-4
     .row
       .col-lg-6
         .form-group
-          label.form-control-label for="input-username"  Username
-          input#input-username.form-control.form-control-alternative placeholder="Username" type="text" value="lucky.jesse" /
+          label.form-control-label for="mosque_name"  Name of mosque
+          = f.text_field :name, class: "form-control form-control-alternative", placeholder: "Name of mosque", required: true
       .col-lg-6
         .form-group
-          label.form-control-label for="input-email"  Email address
-          input#input-email.form-control.form-control-alternative placeholder="jesse@example.com" type="email" /
+          label.form-control-label for="mosque_address"  Address
+          = f.text_field :address, class: "form-control form-control-alternative", placeholder: "Address", required: true
+          
     .row
       .col-lg-6
         .form-group
-          label.form-control-label for="input-first-name"  First name
-          input#input-first-name.form-control.form-control-alternative placeholder=("First name") type="text" value="Lucky" /
+          label.form-control-label for="mosque_latitude"  Latitude
+          = f.text_field :latitude, class: "form-control form-control-alternative", placeholder: "Latitude", required: true
       .col-lg-6
         .form-group
-          label.form-control-label for="input-last-name"  Last name
-          input#input-last-name.form-control.form-control-alternative placeholder=("Last name") type="text" value="Jesse" /
+          label.form-control-label for="mosque_latitude"  Longitude
+          = f.text_field :longitude, class: "form-control form-control-alternative", placeholder: "Longitude", required: true
   hr.my-4/
+  .pull-right
+  	= f.submit 'Create', class: 'btn btn-info my-4 btn-submit', data: {loading_text: 'Creating...', disable_with: 'Please wait....'}
   /! Address
-  h6.heading-small.text-muted.mb-4 Contact information
-  .pl-lg-4
+  /h6.heading-small.text-muted.mb-4 Contact information
+  /.pl-lg-4
     .row
       .col-md-12
         .form-group
@@ -42,10 +45,10 @@ form
         .form-group
           label.form-control-label for="input-country"  Postal code
           input#input-postal-code.form-control.form-control-alternative placeholder=("Postal code") type="number" /
-  hr.my-4/
+  /hr.my-4/
   /! Description
-  h6.heading-small.text-muted.mb-4 About me
-  .pl-lg-4
+  /h6.heading-small.text-muted.mb-4 About me
+  /.pl-lg-4
     .form-group
       label About Me
       textarea.form-control.form-control-alternative placeholder=("A few words about you ...") rows="4"  A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.
