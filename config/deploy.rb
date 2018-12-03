@@ -25,7 +25,7 @@ set :puma_preload_app, 		true
 set :puma_worker_timeout, nil
 set :keep_releases, 5
 
-set :linked_files, %w{.env}
+set :linked_files, %w{.env config/master.key}
 set :linked_dirs, %w{log tmp/cache tmp/sockets tmp/pids public/assets public/uploads }
 
 
