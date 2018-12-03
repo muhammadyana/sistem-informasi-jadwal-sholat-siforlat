@@ -1,9 +1,10 @@
 doctype html
 html lang="en"
-  head
+  head itemtype="http://schema.org/WebSite" itemscope=""
+    = viewport_meta_tag
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
-    = viewport_meta_tag
+    meta name="google-site-verification" content="bZy1hUHwYCR1jasFz-tOXC0oPPX65TADe1phMtvjomQ"
     title= content_for?(:title) ? yield(:title) : "Sistem Informasi Jadwal Sholat - Siforlat"
     = csrf_meta_tags
 
