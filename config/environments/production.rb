@@ -111,4 +111,3 @@ Rails.application.configure do
   config.action_controller.default_url_options = { host: "https://siforlat.com" }
   config.action_mailer.default_url_options = { host: "https://siforlat.com" }
 end
-Rails.application.routes.default_url_options[:host] = 'https://siforlat.com'
