@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :mosques, path: 'mosque', except: [:create] do
         
       end
-      post 'mosque', to: 'mosques#create'
+      post 'mosque', to: 'mosques#create', as: :create_mosque
       patch 'mosque', to: 'mosques#create'
     end
 
