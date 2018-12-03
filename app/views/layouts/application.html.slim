@@ -17,6 +17,7 @@ html lang="en"
     = favicon_link_tag 'siforlat-icon.png', rel: 'shortcut icon'
     script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-130269337-1"
     = javascript_include_tag "application"
+    = yield :custom_library
 
   body.white-content
     nav#sidenav-main.navbar.navbar-vertical.fixed-left.navbar-expand-md.navbar-light.bg-white

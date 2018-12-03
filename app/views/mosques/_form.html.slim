@@ -34,7 +34,7 @@
       .col-lg-6
         .form-group
           label.form-control-label for="mosque_contry"  Country
-          = f.country_select('country', { include_blank: 'Select a country' }, { class: "form-control form-control-alternative", data: { attribute: "value" }})
+          = f.country_select('country', { include_blank: 'Select a country' }, { class: "form-control select-select form-control-alternative", data: { attribute: "value" }})
           /= f.country_select("user", "country", { priority_countries: ["GB", "FR"], selected: "GB" }, { class: 'form-control', data: { attribute: "value" } })
           / = f.text_field :latitude, class: "form-control form-control-alternative", placeholder: "Latitude", required: true
       /.col-lg-6
