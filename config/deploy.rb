@@ -4,7 +4,7 @@ lock "~> 3.11.0"
 set :application, 		"siforlat"
 set :repo_url, 				"git@github.com:muhammadyana/sistem-informasi-jadwal-sholat-siforlat.git"
 
-set :user,            'rails'
+set :user,            "rails"
 
 set :puma_env, 'production'
 set :puma_threads, [1, 16]
@@ -12,7 +12,6 @@ set :puma_workers, 1
 
 set :rvm_ruby_version, '2.4.1'
 
-set :ssh_options, 				{ forward_agent: true, auth_methods: %w(publickey) }
 set :stage,           		:production
 set :deploy_via,      		:remote_cache
 set :deploy_to,      		 "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
@@ -26,7 +25,7 @@ set :puma_preload_app, 		true
 set :puma_worker_timeout, nil
 set :keep_releases, 5
 
-set :linked_files, %w{.env config/database.yml}
+set :linked_files, %w{.env}
 set :linked_dirs, %w{log tmp/cache tmp/sockets tmp/pids public/assets public/uploads }
 
 

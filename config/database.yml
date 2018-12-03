@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: siforlat_production
-  username: siforlat
+  username: <%= ENV['SIFORLAT_DATABASE_USERNAME'] %>
   password: <%= ENV['SIFORLAT_DATABASE_PASSWORD'] %>
