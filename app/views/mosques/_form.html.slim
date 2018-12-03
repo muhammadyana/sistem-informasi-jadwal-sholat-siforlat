@@ -21,6 +21,26 @@
         .form-group
           label.form-control-label for="mosque_latitude"  Longitude
           = f.text_field :longitude, class: "form-control form-control-alternative", placeholder: "Longitude", required: true
+    .row
+      .col-lg-6
+        .form-group
+          label.form-control-label for="mosque_latitude"  City
+          = f.text_field :city, class: "form-control form-control-alternative", placeholder: "City", required: true
+      .col-lg-6
+        .form-group
+          label.form-control-label for="mosque_zipcode"  Zipcode
+          = f.text_field :zipcode, class: "form-control form-control-alternative", placeholder: "Zipcode", required: true
+    .row
+      .col-lg-6
+        .form-group
+          label.form-control-label for="mosque_contry"  Country
+          = f.country_select('country', { include_blank: 'Select a country' }, { class: "form-control form-control-alternative", data: { attribute: "value" }})
+          /= f.country_select("user", "country", { priority_countries: ["GB", "FR"], selected: "GB" }, { class: 'form-control', data: { attribute: "value" } })
+          / = f.text_field :latitude, class: "form-control form-control-alternative", placeholder: "Latitude", required: true
+      /.col-lg-6
+        .form-group
+          label.form-control-label for="mosque_zipcode"  Zipcode
+          = f.text_field :zipcode, class: "form-control form-control-alternative", placeholder: "Zipcode", required: true
   hr.my-4/
   .pull-right
   	= f.submit 'Create', class: 'btn btn-info my-4 btn-submit', data: {loading_text: 'Creating...', disable_with: 'Please wait....'}
