@@ -13,6 +13,7 @@ html lang="en"
     meta name="hostname" content="siforlat.com"
     = display_meta_tags site: 'Siforlat'
     = display_meta_tags og: { title: :title, description: :description }
+    = yield :meta_tags
     = csrf_meta_tags
 
     = stylesheet_link_tag "landing", media: "all"
