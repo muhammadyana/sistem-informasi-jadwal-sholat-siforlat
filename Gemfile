@@ -71,6 +71,9 @@ gem 'pry-rails', '~> 0.3.6'
 gem 'rack-cors', '~> 0.4.0'
 gem 'recaptcha'
 
+#image cloud uploading
+gem 'cloudinary'
+
 # Image processing
 gem 'carrierwave'
 gem 'mini_magick'
