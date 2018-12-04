@@ -68,6 +68,7 @@ gem 'momentjs-rails'
 gem 'oj', '~> 2.17.5'
 gem 'pry-rails', '~> 0.3.6'
 gem 'rack-cors', '~> 0.4.0'
+gem 'recaptcha'
 
 # Image processing
 gem 'carrierwave'
