@@ -20,7 +20,12 @@
 class Mosque < ApplicationRecord
 	extend FriendlyId
   friendly_id :name, use: :slugged
+  mount_uploader :avatar, AvatarUploader
+
   belongs_to :user
+
   accepts_nested_attributes_for :user
+
   validates :latitude, :longitude, :name, :country,  presence: true
+  
 end

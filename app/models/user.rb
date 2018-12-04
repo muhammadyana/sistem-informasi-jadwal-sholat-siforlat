@@ -34,6 +34,7 @@
 class User < ApplicationRecord
   include ActiveModel::Serialization
   extend FriendlyId
+  mount_uploader :avatar, AvatarUploader
   friendly_id :username, use: :slugged
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
