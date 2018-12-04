@@ -119,24 +119,15 @@ section.section.section-lg.pt-lg-0.mt--200
 		$('#gettingCurrentLocation').html('Getting Your current location.......' + '<br>'+'Please allow location access from your browser to get your current location');
 		navigator.geolocation.getCurrentPosition((loc) => {
 			console.log('your location is: [', loc.coords.latitude, ',', loc.coords.longitude, ']');
-			var city = []
 			$.ajax({
 				type: "GET",
-				// ('<span class="float-right">' + showme + '&nbsp;</span>')
 				url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ loc.coords.latitude+','+ loc.coords.longitude +'&sensor=true&key=AIzaSyAgPpgOeWedR2DXbnJYcg0hI9rFGVJQ5dw',
 				cache: false,
 				success: function(data){
-					city.push(data.results[0].address_components[1].long_name, data.results[0].address_components[4].long_name, data.results[0].address_components[6].long_name)
-					// var kota = data.results[0].address_components[1].long_name
-					// console.log(data.results[0].address_components[1].long_name)
-					// console.log(data.results[0].address_components[4].long_name)
-					// console.log(data.results[0].address_components[6].long_name)
-					// console.log(data.results[0].formatted_address)
-					// $("#resultarea").text(data);
+					$('#upcomingPrayer').html('Upcoming Prayer Time in '+'<strong>'+ data.results[0].address_components[5].long_name+','+ data.results[0].address_components[7].long_name +'</strong>');
+					console.log(data.results[0].address_components[1].long_name)
 				}
 			});
-			console.log(city[0]);
-			// console.log(kota);
 			
 			var duration = function(end){
 				var start  = moment();
@@ -315,7 +306,6 @@ section.section.section-lg.pt-lg-0.mt--200
 				$('.ashar').html(getScheduleFor.asr);
 				$('.magrib').html(getScheduleFor.maghrib);
 				$('.isya').html(getScheduleFor.isha);
-				$('#upcomingPrayer').html('Upcoming Prayer Time in '+city[0]+','+ city[1]+','+ city[2]);
 				$('#prayerSchedule').show("fast");
 				$('#gettingCurrentLocation').hide();
 				$('#loader').hide();
