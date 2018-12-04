@@ -1,13 +1,11 @@
-/ h2
-/   | Log in
-/ = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-/   .form-inputs
-/     = f.input :email, required: false, autofocus: true, input_html: { autocomplete: "email", class: 'form-control' }
-/     = f.input :password, required: false, input_html: { autocomplete: "current-password", class: 'form-control' }
-/     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-/   .form-actions
-/     = f.button :submit, "Log in", class: "btn btn-success"
-/ = render "users/shared/links"
+- set_meta_tags title: 'Login Sistem Informasi Jadwal Sholat',
+                description: 'Sistem Informasi Jadwal Sholat - Siforlat merupakan aplikasi untuk menampilkan jadwal sholat secara realtime, informasi kajian, jadawal imam dan khotib, video kajian, dan informasi masjid lainya.',
+                keywords: 'Sistem Informasi Jadwal Sholat, jadwal sholat, aplikasi jadwal sholat, Sistem Informasi masjid',
+                author: 'Siforlat',
+                image: 'https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg'
+-content_for :meta_tags
+  meta content="https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg" property="og:image" /
+
 .header.bg-image.py-9
   .container
     .header-body.text-center.mb-7
