@@ -27,7 +27,12 @@
 		    .card-body
 					.alert.alert-warning.alert-dismissible.fade.show role="alert" 
 						strong Please allow browser to get your current location
-
+					- if @mosque.errors.any?
+						.alert.alert-danger.alert-dismissible.fade.show role="alert" 
+							strong = pluralize(@mosque.errors.count, "Error")
+							ul 
+								-@mosque.errors.full_messages.each do |message|
+									li = message
 					= render partial: "form"	
 
 - content_for :js_plugin
