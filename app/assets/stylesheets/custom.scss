@@ -55,3 +55,9 @@ $theme-colors: ( "bootstrap": #007bff, "simpleform": #1976d2 );
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.pt-3-rem{
+	padding-top: 3rem !important;
+}
+.pb-10-rem{
+	padding-bottom: 10rem !important;
+}
