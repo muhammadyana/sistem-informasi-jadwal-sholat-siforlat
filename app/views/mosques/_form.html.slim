@@ -10,7 +10,7 @@
       .col-lg-6
         .form-group
           label.form-control-label for="mosque_contry"  Country
-          = f.country_select('country', { include_blank: 'Select a country' }, { class: "form-control select-select form-control-alternative", data: { attribute: "value" }})
+          = f.country_select('country', { include_blank: 'Select a country', selected: "ID" }, { class: "form-control select-select form-control-alternative", data: { attribute: "value" }})
           
           
     .row
