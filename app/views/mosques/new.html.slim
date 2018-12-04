@@ -40,6 +40,8 @@
 				cache: false,
 				success: function(data){
 					$('#mosque_address').val(data.results[0].formatted_address)
+					$('#mosque_zipcode').val(data.results[0].address_components[9].long_name)
+					$('#mosque_city').val(data.results[0].address_components[6].long_name)
 				}
 			});
 
