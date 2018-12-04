@@ -2,9 +2,15 @@ doctype html
 html lang="en"
   head itemtype="http://schema.org/WebSite" itemscope=""
     = viewport_meta_tag
-    meta charset="utf-8"
-    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
-    meta name="google-site-verification" content="bZy1hUHwYCR1jasFz-tOXC0oPPX65TADe1phMtvjomQ"
+    meta charset="utf-8"/
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" /
+    meta name="google-site-verification" content="bZy1hUHwYCR1jasFz-tOXC0oPPX65TADe1phMtvjomQ"/
+    meta content="ID" property="og:locale" /
+    meta name="author" content="SIFORLAT"/
+    meta content="website" property="og:type" /
+    meta name="theme-color" content="#081569"/
+    meta name="u2f-support" content="true"/
+    meta name="hostname" content="siforlat.com"
     = display_meta_tags site: 'Siforlat'
     = display_meta_tags og: { title: :title, description: :description }
     = csrf_meta_tags
