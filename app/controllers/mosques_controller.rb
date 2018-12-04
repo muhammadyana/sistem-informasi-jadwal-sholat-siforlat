@@ -59,7 +59,7 @@ class MosquesController < InheritedResources::Base
   private
 
     def mosque_params
-      params.require(:mosque).permit(:name, :address, :latitude, :longitude, :user_id)
+      params.require(:mosque).permit(:name, :address, :latitude, :longitude, :user_id, :country, :city, :zipcode)
     end
 end
 
