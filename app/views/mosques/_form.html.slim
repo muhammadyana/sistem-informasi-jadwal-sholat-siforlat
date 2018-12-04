@@ -32,6 +32,11 @@
           label.form-control-label for="mosque_zipcode"  Zipcode
           = f.text_field :zipcode, class: "form-control form-control-alternative", placeholder: "Zipcode", required: true
     .row
+      .col-lg-6
+        .form-group
+          label.form-control-label for="mosque_avatar"  Mosque Picture
+          = f.file_field :avatar, class: "form-control form-control-file", placeholder: "Mosque Picture"
+    .row
       .col-lg-12
         .form-group
           label.form-control-label for="mosque_address"  Address
