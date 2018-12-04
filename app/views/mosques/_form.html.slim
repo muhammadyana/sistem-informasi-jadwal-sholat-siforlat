@@ -9,8 +9,9 @@
           = f.text_field :name, class: "form-control form-control-alternative", placeholder: "Name of mosque", required: true
       .col-lg-6
         .form-group
-          label.form-control-label for="mosque_address"  Address
-          = f.text_field :address, class: "form-control form-control-alternative", placeholder: "Address", required: true
+          label.form-control-label for="mosque_contry"  Country
+          = f.country_select('country', { include_blank: 'Select a country' }, { class: "form-control select-select form-control-alternative", data: { attribute: "value" }})
+          
           
     .row
       .col-lg-6
@@ -31,10 +32,10 @@
           label.form-control-label for="mosque_zipcode"  Zipcode
           = f.text_field :zipcode, class: "form-control form-control-alternative", placeholder: "Zipcode", required: true
     .row
-      .col-lg-6
+      .col-lg-12
         .form-group
-          label.form-control-label for="mosque_contry"  Country
-          = f.country_select('country', { include_blank: 'Select a country' }, { class: "form-control select-select form-control-alternative", data: { attribute: "value" }})
+          label.form-control-label for="mosque_address"  Address
+          = f.text_area :address, class: "form-control form-control-alternative", placeholder: "Address", required: true
           /= f.country_select("user", "country", { priority_countries: ["GB", "FR"], selected: "GB" }, { class: 'form-control', data: { attribute: "value" } })
           / = f.text_field :latitude, class: "form-control form-control-alternative", placeholder: "Latitude", required: true
       /.col-lg-6
