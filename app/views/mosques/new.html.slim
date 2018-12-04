@@ -25,7 +25,10 @@
 		        / .col-4.text-right
 		          a.btn.btn-sm.btn-primary href="#!"  Settings
 		    .card-body
-		      = render partial: "form"	
+					.alert.alert-warning.alert-dismissible.fade.show role="alert" 
+						strong Please allow browser to get your current location
+
+					= render partial: "form"	
 
 - content_for :js_plugin
 	javascript:
