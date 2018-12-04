@@ -10,9 +10,14 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    if verify_recaptcha
+      super
+    else
+      flash[:alert] = "Recaptcha cannot be blank; or you are not human"
+      redirect_to new_user_session_path
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy
