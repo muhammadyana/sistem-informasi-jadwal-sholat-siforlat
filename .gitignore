@@ -28,3 +28,6 @@
 /config/deploy/production.rb
 /config/deploy/*
 /config/deploy/staging.rb
+
+Gemfile.lock
+/db/schema.rb
