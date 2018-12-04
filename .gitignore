@@ -29,5 +29,4 @@
 /config/deploy/*
 /config/deploy/staging.rb
 
-Gemfile.lock
 /db/schema.rb
