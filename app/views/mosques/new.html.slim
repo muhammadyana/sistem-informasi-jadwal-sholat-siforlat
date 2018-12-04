@@ -30,6 +30,16 @@
 - content_for :js_plugin
 	javascript:
 		navigator.geolocation.getCurrentPosition((loc) => {
+
+			$.ajax({
+				type: "GET",
+				url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ loc.coords.latitude+','+ loc.coords.longitude +'&sensor=true&key=AIzaSyAgPpgOeWedR2DXbnJYcg0hI9rFGVJQ5dw',
+				cache: false,
+				success: function(data){
+					$('#mosque_address').val(data.results[0].formatted_address)
+				}
+			});
+
 			console.log('your location is: [', loc.coords.latitude, ',', loc.coords.longitude, ']');
 			$('#mosque_latitude').val(loc.coords.latitude);
 			$('#mosque_longitude').val(loc.coords.longitude);
