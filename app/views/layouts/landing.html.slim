@@ -32,7 +32,7 @@ html lang="en"
     header.header-global
       nav#navbar-main.navbar.navbar-main.navbar-expand-lg.navbar-transparent.navbar-light.headroom
         .container
-          = link_to root_path, class: "navbar-brand mr-lg-5" do
+          = link_to root_path, class: "navbar-brand mr-lg-5", data: {turbolinks: false} do
             img src="https://res.cloudinary.com/muhammadyana/image/upload/v1543342447/siforlat/SIFORLAT-LOGO.png" /
           button.navbar-toggler aria-controls="navbar_global" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbar_global" data-toggle="collapse" type="button" 
             span.navbar-toggler-icon

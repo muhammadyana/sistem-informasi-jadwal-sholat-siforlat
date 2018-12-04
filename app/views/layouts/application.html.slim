@@ -34,7 +34,7 @@ html lang="en"
         button.navbar-toggler aria-controls="sidenav-main" aria-expanded="false" aria-label=("Toggle navigation") data-target="#sidenav-collapse-main" data-toggle="collapse" type="button" 
           span.navbar-toggler-icon
         /! Brand
-        = link_to dashboard_path, class: "navbar-brand pt-0" do
+        = link_to dashboard_path, class: "navbar-brand pt-0", data: {turbolinks: false} do
           img.navbar-brand-img alt="Sistem Informasi Jadwal Sholat" src="https://res.cloudinary.com/muhammadyana/image/upload/v1543590364/siforlat/siforlat-logo-black.png" /
         /! User
         ul.nav.align-items-center.d-md-none
