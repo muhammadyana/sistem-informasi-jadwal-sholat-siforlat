@@ -40,8 +40,9 @@ html lang="en"
             .navbar-collapse-header
               .row
                 .col-6.collapse-brand
-                  a href="../index.html" 
-                    img src="https://demos.creative-tim.com/argon-design-system/assets/img/brand/white.png" /
+                  = link_to root_path, class: "navbar-brand mr-lg-5" do
+                    img src="https://res.cloudinary.com/muhammadyana/image/upload/v1543590364/siforlat/siforlat-logo-black.png" /
+                  
                 .col-6.collapse-close
                   button.navbar-toggler aria-controls="navbar_global" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbar_global" data-toggle="collapse" type="button" 
                     span
@@ -97,7 +98,7 @@ html lang="en"
                 a.nav-link.nav-link-icon data-toggle="tooltip" href="https://github.com/muhammadyana/sistem-informasi-jadwal-sholat-siforlat" target="_blank" title=("Star us on Github") 
                   i.fa.fa-github
                   span.nav-link-inner--text.d-lg-none Github
-              li.nav-item.d-none.d-lg-block.ml-lg-4
+              li.nav-item.d-lg-block.ml-lg-4
                 - if user_signed_in?
                   = link_to logout_path, method: :delete, class: "btn btn-warning btn-icon" do
                     span.nav-link-inner--text Logout
