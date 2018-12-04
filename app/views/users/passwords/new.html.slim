@@ -1,12 +1,10 @@
-/ h2
-/   | Forgot your password?
-/ = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-/   = f.error_notification
-/   .form-inputs
-/     = f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }
-/   .form-actions
-/     = f.button :submit, "Send me reset password instructions"
-/ = render "users/shared/links"
+- set_meta_tags title: 'Reset Siforlat Password Account',
+                description: 'Reset Siforlat Account - Sistem Informasi Jadwal Sholat - Siforlat merupakan aplikasi untuk menampilkan jadwal sholat secara realtime, informasi kajian, jadawal imam dan khotib, video kajian, dan informasi masjid lainya.',
+                keywords: 'Register Siforlat Account, prayer times, Sistem Informasi Jadwal Sholat, jadwal sholat, aplikasi jadwal sholat, Sistem Informasi masjid',
+                author: 'Siforlat',
+                image: 'https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg'
+-content_for :meta_tags
+  meta content="https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg" property="og:image" /
 .header.bg-image.py-9
   .container
     .header-body.text-center.mb-7
