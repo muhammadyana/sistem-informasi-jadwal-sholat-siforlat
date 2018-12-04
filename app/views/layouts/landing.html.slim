@@ -101,6 +101,8 @@ html lang="en"
                 - if user_signed_in?
                   = link_to logout_path, method: :delete, class: "btn btn-warning btn-icon" do
                     span.nav-link-inner--text Logout
+                  = link_to dashboard_path, class: "btn btn-info btn-icon" do
+                    span.nav-link-inner--text Dashboard
                 - else
                   = link_to new_user_session_path, class: "btn btn-neutral btn-icon" do
                     span.nav-link-inner--text Login
