@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   scope 'dashboard' do
     get '/', to: 'dashboard#index', as: :dashboard
-    
+    resources :mosques, only: [:index]
     resources :users, except: [:new, :create, :update, :edit, :destroy] do
-      resources :mosques, path: 'mosque', except: [:create] do
+      resources :mosques, path: 'mosque', except: [:create, :index] do
         
       end
       post 'mosque', to: 'mosques#create', as: :create_mosque

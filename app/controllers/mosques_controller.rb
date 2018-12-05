@@ -1,9 +1,14 @@
 class MosquesController < InheritedResources::Base
 	before_action :authenticate_user!
+  before_action :set_user_mosque, only: [:show, :edit, :update, :destroy, :user_mosque]
 
 
 	def index
-    @mosque = current_user.mosque
+    @mosques = Mosque.all
+  end
+
+  def user_mosque
+    
   end
 
  
@@ -60,6 +65,10 @@ class MosquesController < InheritedResources::Base
 
     def mosque_params
       params.require(:mosque).permit(:name, :address, :latitude, :longitude, :user_id, :country, :city, :zipcode, :avatar)
+    end
+
+    def set_user_mosque
+      @mosque = current_user.mosque.friendly.find(params[:id])
     end
 end
 
