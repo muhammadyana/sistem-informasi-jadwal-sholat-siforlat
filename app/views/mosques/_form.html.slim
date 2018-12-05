@@ -12,7 +12,11 @@
           label.form-control-label for="mosque_contry"  Country
           = f.country_select('country', { include_blank: 'Select a country', selected: "ID" }, { class: "form-control select-select form-control-alternative", data: { attribute: "value" }})
           
-          
+    .row
+      .col-lg-12
+        .form-group
+          label.form-control-label for="mosque_address"  Address
+          = f.text_field :address, class: "form-control form-control-alternative", placeholder: "Address", required: true, onFocus: "geolocate();"
     .row
       .col-lg-6
         .form-group
@@ -36,11 +40,7 @@
         .form-group
           label.form-control-label for="mosque_avatar"  Mosque Picture
           = f.file_field :avatar, class: "form-control form-control-file", placeholder: "Mosque Picture"
-    .row
-      .col-lg-12
-        .form-group
-          label.form-control-label for="mosque_address"  Address
-          = f.text_area :address, class: "form-control form-control-alternative", placeholder: "Address", required: true
+    
           /= f.country_select("user", "country", { priority_countries: ["GB", "FR"], selected: "GB" }, { class: 'form-control', data: { attribute: "value" } })
           / = f.text_field :latitude, class: "form-control form-control-alternative", placeholder: "Latitude", required: true
       /.col-lg-6
@@ -50,43 +50,3 @@
   hr.my-4/
   .pull-right
   	= f.submit 'Create', class: 'btn btn-info my-4 btn-submit', data: {loading_text: 'Creating...', disable_with: 'Please wait....'}
-  /! Address
-  /h6.heading-small.text-muted.mb-4 Contact information
-  /.pl-lg-4
-    .row
-      .col-md-12
-        .form-group
-          label.form-control-label for="input-address"  Address
-          input#input-address.form-control.form-control-alternative placeholder=("Home Address") type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" /
-    .row
-      .col-lg-4
-        .form-group
-          label.form-control-label for="input-city"  City
-          input#input-city.form-control.form-control-alternative placeholder="City" type="text" value=("New York") /
-      .col-lg-4
-        .form-group
-          label.form-control-label for="input-country"  Country
-          input#input-country.form-control.form-control-alternative placeholder="Country" type="text" value=("United States") /
-      .col-lg-4
-        .form-group
-          label.form-control-label for="input-country"  Postal code
-          input#input-postal-code.form-control.form-control-alternative placeholder=("Postal code") type="number" /
-  /hr.my-4/
-  /! Description
-  /h6.heading-small.text-muted.mb-4 About me
-  /.pl-lg-4
-    .form-group
-      label About Me
-      textarea.form-control.form-control-alternative placeholder=("A few words about you ...") rows="4"  A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.
-
-
-/= form_for(@mosque, :html => { class: 'form-horizontal', role: 'form' }, url: user_mosque_path(current_user)) do |f| 
-  = f.text_field :name
-  = f.text_field :address
-  = f.text_field :latitude
-  = f.text_field :longitude
-  / = f.association :user
-  .form-group
-    .col-sm-offset-3.col-sm-9
-      = f.submit "Create", class: 'btn btn-primary'
-      / = link_to t('.cancel', default: t("helpers.links.cancel")), mosques_path, class: 'btn btn-default'

@@ -16,7 +16,7 @@
         a.btn.btn-info href="#!"  Edit profile
 .container-fluid.mt--7
 	.row
-		.col-lg-10.offset-lg-1
+		.col-lg-12
 		  .card.bg-secondary.shadow
 		    .card-header.bg-white.border-0
 		      .row.align-items-center
@@ -36,24 +36,47 @@
 					= render partial: "form"	
 
 - content_for :js_plugin
+	
 	javascript:
-		navigator.geolocation.getCurrentPosition((loc) => {
+		var placeSearch, autocomplete;
 
-			$.ajax({
-				type: "GET",
-				url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ loc.coords.latitude+','+ loc.coords.longitude +'&sensor=true&key=AIzaSyAgPpgOeWedR2DXbnJYcg0hI9rFGVJQ5dw',
-				cache: false,
-				success: function(data){
-					$('#mosque_address').val(data.results[0].formatted_address)
-					$('#mosque_zipcode').val(data.results[0].address_components[9].long_name)
-					$('#mosque_city').val(data.results[0].address_components[6].long_name)
+		function initAutocomplete() {
+			autocomplete = new google.maps.places.Autocomplete(
+				(document.getElementById('mosque_address')),{types: ['geocode']
+			});      
+			autocomplete.addListener('place_changed', fillInAddress);
+		}
+
+		function fillInAddress() {
+			var place = autocomplete.getPlace();
+			$('#mosque_latitude').val(place.geometry.location.lat());
+			$('#mosque_longitude').val(place.geometry.location.lng());
+			for (var i = 0; i < place.address_components.length; i++) {
+				for (var j = 0; j < place.address_components[i].types.length; j++) {
+					if (place.address_components[i].types[j] == "administrative_area_level_2") {
+						$('#mosque_city').val(place.address_components[i].long_name);
+					}
+					if (place.address_components[i].types[j] == "postal_code") {
+						console.log(place.address_components[i].long_name);
+						$('#mosque_zipcode').val(place.address_components[i].long_name);
+					}
 				}
-			});
+			}
+		}
 
-			console.log('your location is: [', loc.coords.latitude, ',', loc.coords.longitude, ']');
-			$('#mosque_latitude').val(loc.coords.latitude);
-			$('#mosque_longitude').val(loc.coords.longitude);
-		});
-		$(document).ready(function() {
-		  // $('.select-select').select2();
-		});
+		function geolocate() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var geolocation = {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude
+					};
+					var circle = new google.maps.Circle({
+						center: geolocation,
+						radius: position.coords.accuracy
+					});
+					autocomplete.setBounds(circle.getBounds());
+				});
+			}
+		}
+	script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgPpgOeWedR2DXbnJYcg0hI9rFGVJQ5dw&libraries=places&callback=initAutocomplete"

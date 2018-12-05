@@ -30,7 +30,7 @@ class MosquesController < InheritedResources::Base
 
     respond_to do |format|
       if @mosque.save
-        format.html { redirect_to user_mosques_path(current_user), notice: 'Mosque was successfully created.' }
+        format.html { redirect_to user_mosque_path(current_user, @mosque), notice: 'Mosque was successfully created.' }
         format.json { render :show, status: :created, location: @mosque }
       else
         format.html { render :new }
@@ -68,7 +68,7 @@ class MosquesController < InheritedResources::Base
     end
 
     def set_user_mosque
-      @mosque = current_user.mosque.friendly.find(params[:id])
+      @mosque = Mosque.friendly.find(params[:id])
     end
 end
 
