@@ -5,7 +5,80 @@
                 image: 'https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg'
 -content_for :meta_tags
   meta content="https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg" property="og:image" /
-.page-header
-  / h1=t '.title', default: model_class.model_name.human.pluralize.titleize
-  pre
-    = @mosques.to_json
+
+/ header 
+.header.bg-gradient-info.pb-8.pt-5.pt-md-8
+  .container-fluid
+    .header-body
+      /! Card stats
+      .row
+        .col-xl-4.col-lg-6
+          .card.card-stats.mb-4.mb-xl-0
+            .card-body
+              .row
+                .col
+                  h5.card-title.text-uppercase.text-muted.mb-0 Registered All Mosque
+                  span.h2.font-weight-bold.mb-0.imsak 1000
+                .col-auto
+                  .icon.icon-shape.bg-success.text-white.rounded-circle.shadow
+                    i.ni.ni-istanbul
+              p.mt-3.mb-0.text-muted.text-sm
+                / span.text-success.mr-2
+                  i.fa.fa-arrow-up
+                  | 3.48%
+                / span.text-nowrap Since last month
+.container-fluid.mt--7
+  .row
+    .col
+      .card.shadow.border-0
+        #map-canvas.map-canvas data-lat="-6.8970235" data-lng="107.6235107" style=("height: 600px;") 
+
+
+- content_for :js_plugin
+  script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgPpgOeWedR2DXbnJYcg0hI9rFGVJQ5dw"
+  javascript:
+    var $map = $('#map-canvas'),
+    map,
+    lat,
+    lng,
+    color = "#007bff";
+
+    function initMap() {
+
+        map = document.getElementById('map-canvas');
+        lat = map.getAttribute('data-lat');
+        lng = map.getAttribute('data-lng');
+
+        var myLatlng = new google.maps.LatLng(lat, lng);
+        var mapOptions = {
+            zoom: 15,
+            scrollwheel: false,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":color},{"visibility":"on"}]}]
+        }
+
+        map = new google.maps.Map(map, mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            title: 'Hello There !'
+        });
+
+        var contentString = '<div class="info-window-content"><h2>Siforlat</h2>' +
+            '<p>Sistem Informasi Jadwal Sholat</p></div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map, marker);
+        });
+    }
+
+    if($map.length) {
+        google.maps.event.addDomListener(window, 'load', initMap);
+    }
