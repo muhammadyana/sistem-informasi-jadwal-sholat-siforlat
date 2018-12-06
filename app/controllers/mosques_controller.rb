@@ -5,6 +5,7 @@ class MosquesController < InheritedResources::Base
 
 	def index
     @mosques = Mosque.all
+    @mosque_count = Mosque.count
   end
 
   def user_mosque
