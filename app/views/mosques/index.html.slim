@@ -52,11 +52,28 @@
 - content_for :js_plugin
   script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgPpgOeWedR2DXbnJYcg0hI9rFGVJQ5dw"
   javascript:
+    locationss = [];
+    getMosques = function (callback) {
+      if (callback == undefined) return;
+      $.ajax({
+        type: "GET",
+        url: 'http://localhost:3000/api/v1/mosques',
+        cache: false,
+        success: function(data){
+          callback(data);
+        }
+      });
+    }
+
     var $map = $('#map-canvas'),
     map,
     lat,
     lng,
     color = "#007bff";
+
+    getMosques(function(mosques){
+      console.log(mosques)
+    });
 
     var infowindow = new google.maps.InfoWindow();
 
