@@ -91,17 +91,18 @@
       map = new google.maps.Map(map, mapOptions);
       for (i = 0; i < mosques.length; i++) {  
         // mosquesArray = [mosques[i].name, mosques[i].latitude, mosques[i].longitude];
-        // console.log(locations[i]);
+        // console.log(mosques[i].address);
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(parseFloat(mosques[i].latitude), parseFloat(mosques[i].longitude)),
           map: map,
           animation: google.maps.Animation.DROP,
           title: 'Hello There !'
         });
-
+        
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          var contentMosque = '<h2>' + mosques[i].name +'</h2> <p>' +  mosques[i].address +'</p>' +'<img src="'+mosques[i].avatar+'" width="100">';
           return function() {
-            infowindow.setContent(mosques[i].name);
+            infowindow.setContent(contentMosque);
             infowindow.open(map, marker);
           }
         })(marker, i));
