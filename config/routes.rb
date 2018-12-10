@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1, defaults: { format: :json } do
       get 'prayer-times/:duration', to: 'prayer_times#index'
+      get 'mosques', to: 'mosques#index'
     	mount_devise_token_auth_for 'User', at: 'users', controllers: {
 		    registrations:  'api/v1/registrations', 	as: :new_user_api_registration_path,
 		    sessions:  			'api/v1/sessions', 				as: :user_api_session_path,
