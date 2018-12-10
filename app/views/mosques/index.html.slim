@@ -58,42 +58,68 @@
     lng,
     color = "#007bff";
 
-    function initMap() {
+    var infowindow = new google.maps.InfoWindow();
 
-        map = document.getElementById('map-canvas');
-        lat = map.getAttribute('data-lat');
-        lng = map.getAttribute('data-lng');
+    var marker, i;
 
-        var myLatlng = new google.maps.LatLng(lat, lng);
-        var mapOptions = {
-            zoom: 15,
-            scrollwheel: false,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":color},{"visibility":"on"}]}]
+    map = document.getElementById('map-canvas');
+    lat = -33.890542;
+    // lat = map.getAttribute('data-lat');
+    lng = 151.274856;
+    // lng = map.getAttribute('data-lng');
+
+    var locations = [
+      ['Bondi Beach', -33.890542, 151.274856, 4],
+      ['Coogee Beach', -33.923036, 151.259052, 5],
+      ['Cronulla Beach', -34.028249, 151.157507, 3],
+      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+      ['Maroubra Beach', -33.950198, 151.259302, 1]
+    ];
+
+    var myLatlng = new google.maps.LatLng(lat, lng);
+    var mapOptions = {
+        zoom: 10,
+        scrollwheel: false,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":color},{"visibility":"on"}]}]
+    }
+
+    map = new google.maps.Map(map, mapOptions);
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+        animation: google.maps.Animation.DROP,
+        title: 'Hello There !'
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
         }
-
-        map = new google.maps.Map(map, mapOptions);
-
-        var marker = new google.maps.Marker({
-            position: myLatlng,
-            map: map,
-            animation: google.maps.Animation.DROP,
-            title: 'Hello There !'
-        });
-
-        var contentString = '<div class="info-window-content"><h2>Siforlat</h2>' +
-            '<p>Sistem Informasi Jadwal Sholat</p></div>';
-
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-        });
+      })(marker, i));
     }
 
-    if($map.length) {
-        google.maps.event.addDomListener(window, 'load', initMap);
-    }
+        // var marker = new google.maps.Marker({
+        //     position: myLatlng,
+        //     map: map,
+        //     animation: google.maps.Animation.DROP,
+        //     title: 'Hello There !'
+        // });
+
+        // var contentString = '<div class="info-window-content"><h2>Siforlat</h2>' +
+        //     '<p>Sistem Informasi Jadwal Sholat</p></div>';
+
+        // var infowindow = new google.maps.InfoWindow({
+        //     content: contentString
+        // });
+
+        // google.maps.event.addListener(marker, 'click', function() {
+        //     infowindow.open(map, marker);
+        // });
+    
+
+    
