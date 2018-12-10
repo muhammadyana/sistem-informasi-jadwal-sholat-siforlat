@@ -48,7 +48,6 @@
       .card.shadow.border-0
         #map-canvas.map-canvas data-lat="-6.8970235" data-lng="107.6235107" style=("height: 600px;") 
 
-
 - content_for :js_plugin
   script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgPpgOeWedR2DXbnJYcg0hI9rFGVJQ5dw"
   javascript:
@@ -72,71 +71,43 @@
     color = "#007bff";
 
     getMosques(function(mosques){
-      console.log(mosques)
-    });
+      // console.log(mosques[0]);
+      // console.log(mosques[0].latitude)
+      var infowindow = new google.maps.InfoWindow();
+      var marker, i;
+      map = document.getElementById('map-canvas');
+      lat = parseFloat(mosques[0].latitude);
+      lng = parseFloat(mosques[0].longitude);
 
-    var infowindow = new google.maps.InfoWindow();
+      var myLatlng = new google.maps.LatLng(lat, lng);
+      var mapOptions = {
+          zoom: 5,
+          scrollwheel: false,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":color},{"visibility":"on"}]}]
+      }
 
-    var marker, i;
+      map = new google.maps.Map(map, mapOptions);
+      for (i = 0; i < mosques.length; i++) {  
+        // mosquesArray = [mosques[i].name, mosques[i].latitude, mosques[i].longitude];
+        // console.log(locations[i]);
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(parseFloat(mosques[i].latitude), parseFloat(mosques[i].longitude)),
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: 'Hello There !'
+        });
 
-    map = document.getElementById('map-canvas');
-    lat = -33.890542;
-    // lat = map.getAttribute('data-lat');
-    lng = 151.274856;
-    // lng = map.getAttribute('data-lng');
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(mosques[i].name);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
 
-    var locations = [
-      ['Bondi Beach', -33.890542, 151.274856, 4],
-      ['Coogee Beach', -33.923036, 151.259052, 5],
-      ['Cronulla Beach', -34.028249, 151.157507, 3],
-      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-      ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
-
-    var myLatlng = new google.maps.LatLng(lat, lng);
-    var mapOptions = {
-        zoom: 10,
-        scrollwheel: false,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":color},{"visibility":"on"}]}]
-    }
-
-    map = new google.maps.Map(map, mapOptions);
-
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map,
-        animation: google.maps.Animation.DROP,
-        title: 'Hello There !'
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
-
-        // var marker = new google.maps.Marker({
-        //     position: myLatlng,
-        //     map: map,
-        //     animation: google.maps.Animation.DROP,
-        //     title: 'Hello There !'
-        // });
-
-        // var contentString = '<div class="info-window-content"><h2>Siforlat</h2>' +
-        //     '<p>Sistem Informasi Jadwal Sholat</p></div>';
-
-        // var infowindow = new google.maps.InfoWindow({
-        //     content: contentString
-        // });
-
-        // google.maps.event.addListener(marker, 'click', function() {
-        //     infowindow.open(map, marker);
-        // });
-    
+      }
+      
+    });    
 
     
