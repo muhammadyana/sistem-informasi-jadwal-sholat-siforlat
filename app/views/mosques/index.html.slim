@@ -56,7 +56,7 @@
       if (callback == undefined) return;
       $.ajax({
         type: "GET",
-        url: 'http://localhost:3000/api/v1/mosques',
+        url: '/api/v1/mosques',
         cache: false,
         success: function(data){
           callback(data);
