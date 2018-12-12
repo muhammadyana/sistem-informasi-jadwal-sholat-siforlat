@@ -20,3 +20,11 @@ If u have any question or want to contribute please message me in [Telegram](htt
 
 Thanks
 
+
+**Aplikasi ini masih sedang didevelope menggunakan Ruby on Rails, NodeJs dan Android studio, untuk source code silahkan klik link di bawah ini**
+
+- **API JADWAL SHOLAT (NodeJs)** [Sistem Informasi Jadwal Sholat API](https://github.com/muhammadyana/sistem-informasi-jadwal-sholat-API "Sistem Informasji Jadwal Sholat (SIFORLAT) API")
+
+- **ADMIN DASHBOARD (Still progress use Ruby on Rails)** [Sistem Informasi Jadwal Sholat Dashboard](https://github.com/muhammadyana/sistem-informasi-jadwal-sholat-siforlat "Sistem Informasji Jadwal Sholat Dashboard (SIFORLAT)")
+
+- **Android App (Still Progress)** [Sistem Informasji Jadwal Sholat Mobile App by Mochamad Arifin](https://github.com/flasharifin/Sistem-Informasi-Jadwal-Sholat-Mobile-App "Sistem Informasji Jadwal Sholat Mobile App by Mochamad Arifin")
