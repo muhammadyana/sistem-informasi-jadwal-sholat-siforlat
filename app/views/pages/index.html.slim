@@ -131,7 +131,7 @@ section.section.section-lg.pt-lg-0.mt--200
 				url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ loc.coords.latitude+','+ loc.coords.longitude +'&sensor=true&key=AIzaSyAgPpgOeWedR2DXbnJYcg0hI9rFGVJQ5dw',
 				cache: false,
 				success: function(data){
-					$('#upcomingPrayer').html('Upcoming Prayer Time in '+'<strong>'+ data.results[0].address_components[4].long_name+','+ data.results[0].address_components[7].long_name +'</strong>');
+					$('#upcomingPrayer').html('Upcoming Prayer Time in '+'<strong>'+ data.results[1].address_components[4].long_name+','+ data.results[0].address_components[7].long_name +'</strong>');
 					console.log(data.results[0].address_components[1].long_name)
 				}
 			});
