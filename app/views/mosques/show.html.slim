@@ -1,3 +1,10 @@
+- set_meta_tags title: "#{current_user.full_name} - #{current_user.mosque.name}",
+                description: 'listing All Mosque in Siforlat -  Sistem Informasi Jadwal Sholat - Siforlat merupakan aplikasi untuk menampilkan jadwal sholat secara realtime, informasi kajian, jadawal imam dan khotib, video kajian, dan informasi masjid lainya.',
+                keywords: 'Sistem Informasi Jadwal Sholat, jadwal sholat, prayer times, aplikasi jadwal sholat, Sistem Informasi masjid',
+                author: 'Siforlat',
+                image: 'https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg'
+-content_for :meta_tags
+  meta content="https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg" property="og:image" /
 - model_class = Mosque
 div class="page-header"
   h1=t '.title', default: model_class.model_name.human.titleize
