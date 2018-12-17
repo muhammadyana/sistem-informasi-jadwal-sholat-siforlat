@@ -19,8 +19,110 @@
         p.text-white.mt-0.mb-5 = @mosque.address
         a.btn.btn-info href="#!"  Edit Mosque
 
+.container-fluid.mt--7
+  .row
+    .col-xl-4.order-xl-2.mb-5.mb-xl-0
+      .card.card-profile.shadow
+        .row.justify-content-center
+          .col-lg-3.order-lg-2
+            .card-profile-image
+              a href="#" 
+                = image_tag @mosque.avatar.url, class: "rounded-circle"
+        .card-header.text-center.border-0.pt-8.pt-md-4.pb-0.pb-md-4
+          / .d-flex.justify-content-between
+            a.btn.btn-sm.btn-info.mr-4 href="#"  Connect
+            a.btn.btn-sm.btn-default.float-right href="#"  Message
+        .card-body.pt-0.pt-md-4
+          .row
+            .col
+              .card-profile-stats.d-flex.justify-content-center.mt-md-5
+                div
+                  span.heading 22
+                  span.description Views
+                /div
+                  span.heading 10
+                  span.description Photos
+                /div
+                  span.heading 89
+                  span.description Comments
+          .text-center
+            h3
+              = @mosque.name
+              / span.font-weight-light , 27
+            .h5.font-weight-300
+              i.ni.location_pin.mr-2
+              = @mosque.address
+            /.h5.mt-4
+              i.ni.business_briefcase-24.mr-2
+              | Solution Manager - Creative Tim Officer
+            /div
+              i.ni.education_hat.mr-2
+              | University of Computer Science
+            hr.my-4/
+            / p Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.
+            / a href="#"  Show more
+    /.col-xl-8.order-xl-1
+      .card.bg-secondary.shadow
+        .card-header.bg-white.border-0
+          .row.align-items-center
+            .col-8
+              h3.mb-0 My account
+            .col-4.text-right
+              a.btn.btn-sm.btn-primary href="#!"  Settings
+        .card-body
+          form
+            h6.heading-small.text-muted.mb-4 User information
+            .pl-lg-4
+              .row
+                .col-lg-6
+                  .form-group
+                    label.form-control-label for="input-username"  Username
+                    input#input-username.form-control.form-control-alternative placeholder="Username" type="text" value="lucky.jesse" /
+                .col-lg-6
+                  .form-group
+                    label.form-control-label for="input-email"  Email address
+                    input#input-email.form-control.form-control-alternative placeholder="jesse@example.com" type="email" /
+              .row
+                .col-lg-6
+                  .form-group
+                    label.form-control-label for="input-first-name"  First name
+                    input#input-first-name.form-control.form-control-alternative placeholder=("First name") type="text" value="Lucky" /
+                .col-lg-6
+                  .form-group
+                    label.form-control-label for="input-last-name"  Last name
+                    input#input-last-name.form-control.form-control-alternative placeholder=("Last name") type="text" value="Jesse" /
+            hr.my-4/
+            /! Address
+            h6.heading-small.text-muted.mb-4 Contact information
+            .pl-lg-4
+              .row
+                .col-md-12
+                  .form-group
+                    label.form-control-label for="input-address"  Address
+                    input#input-address.form-control.form-control-alternative placeholder=("Home Address") type="text" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" /
+              .row
+                .col-lg-4
+                  .form-group
+                    label.form-control-label for="input-city"  City
+                    input#input-city.form-control.form-control-alternative placeholder="City" type="text" value=("New York") /
+                .col-lg-4
+                  .form-group
+                    label.form-control-label for="input-country"  Country
+                    input#input-country.form-control.form-control-alternative placeholder="Country" type="text" value=("United States") /
+                .col-lg-4
+                  .form-group
+                    label.form-control-label for="input-country"  Postal code
+                    input#input-postal-code.form-control.form-control-alternative placeholder=("Postal code") type="number" /
+            hr.my-4/
+            /! Description
+            h6.heading-small.text-muted.mb-4 About me
+            .pl-lg-4
+              .form-group
+                label About Me
+                textarea.form-control.form-control-alternative placeholder=("A few words about you ...") rows="4"  A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.
 
-.fieldset
+
+/ .fieldset
   dl
       dt.label.label-default= model_class.human_attribute_name(:name)
       dd
@@ -38,7 +140,7 @@
       dd
         pre.prettyprint= @mosque.user_id
 
-.form-group
+/ .form-group
   = link_to t('.back', default: t("helpers.links.back")), mosques_path, class: 'btn btn-default'
   '
   = link_to t('.edit', default: t("helpers.links.edit")), edit_user_mosque_path(current_user, @mosque), class: 'btn btn-default'
