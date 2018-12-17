@@ -6,8 +6,19 @@
 -content_for :meta_tags
   meta content="https://res.cloudinary.com/muhammadyana/image/upload/v1543910639/siforlat/siforlat-thumbnail.jpg" property="og:image" /
 - model_class = Mosque
-div class="page-header"
+/ div class="page-header"
   h1=t '.title', default: model_class.model_name.human.titleize
+.header.pb-8.pt-5.pt-lg-8.d-flex.align-items-center style=("min-height: 600px; background-image: url(#{@mosque.avatar.thumbnail.url}); background-size: cover; background-position: center top;") 
+  /! Mask
+  span.mask.bg-gradient-default.opacity-8
+  /! Header container
+  .container-fluid.d-flex.align-items-center
+    .row
+      .col-lg-10.col-md-10
+        h1.display-2.text-white = @mosque.name
+        p.text-white.mt-0.mb-5 = @mosque.address
+        a.btn.btn-info href="#!"  Edit Mosque
+
 
 .fieldset
   dl
