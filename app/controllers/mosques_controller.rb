@@ -16,6 +16,7 @@ class MosquesController < InheritedResources::Base
 
  
   def show
+    impressionist(@mosque)
   end
 
   
