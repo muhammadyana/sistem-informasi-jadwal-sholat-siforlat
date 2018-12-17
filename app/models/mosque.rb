@@ -19,6 +19,7 @@
 
 class Mosque < ApplicationRecord
 	extend FriendlyId
+	is_impressionable
   friendly_id :name, use: :slugged
   mount_uploader :avatar, AvatarUploader
 

@@ -1,6 +1,7 @@
 class MosquesController < InheritedResources::Base
 	before_action :authenticate_user!
   before_action :set_user_mosque, only: [:show, :edit, :update, :destroy, :user_mosque]
+  impressionist :actions=> [:show]
 
 
 	def index
