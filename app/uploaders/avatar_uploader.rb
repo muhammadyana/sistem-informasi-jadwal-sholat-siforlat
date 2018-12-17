@@ -32,6 +32,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     resize_to_fill(640, 640)
   end
 
+  version :cover do
+    resize_to_fill(1200, 600)
+  end
+
   def size_range
     0..1.megabytes
   end
