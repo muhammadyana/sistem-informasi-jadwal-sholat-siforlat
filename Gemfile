@@ -46,41 +46,50 @@ gem 'country_select', require: 'country_select_without_sort_alphabetical'
 # gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bootstrap-sass-extras'
 # gem 'bootstrap-generators'
+#image cloud uploading
+gem 'cloudinary'
+# Image processing
+gem 'carrierwave'
+gem 'carrierwave-base64', '~> 2.3.4'
+
 gem 'devise', github: 'plataformatec/devise'
 gem 'delayed_job_active_record', '~> 4.1.3'
 gem 'devise_token_auth'
 gem 'draper', '~> 3.0.0'
+gem 'dotenv-rails'
+
 gem 'font-awesome-rails'
 gem 'foreman'
 gem 'friendly_id'
 gem 'figaro', '~> 1.1.1'
 gem 'fog-aws', '~> 2.0.0'
 # gem 'fast_jsonapi'
+
+gem 'httparty'
+
 gem 'impressionist'
+
 gem 'jquery'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-gem 'httparty'
-gem 'nprogress-rails'
-gem 'slim-rails'
-gem 'popper_js', '~> 1.14.3'
-gem 'simple_form'
-gem 'momentjs-rails'
+
 gem 'meta-tags'
+gem 'mini_magick'
+gem 'momentjs-rails'
+
+gem 'nprogress-rails'
+
 gem 'oj', '~> 2.17.5'
+
+gem 'popper_js', '~> 1.14.3'
 gem 'pry-rails', '~> 0.3.6'
+
 gem 'rack-cors', '~> 0.4.0'
 gem 'recaptcha'
+gem 'rubocop-performance'
 
-#image cloud uploading
-gem 'cloudinary'
-
-# Image processing
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'carrierwave-base64', '~> 2.3.4'
-
-gem 'dotenv-rails'
+gem 'slim-rails'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
