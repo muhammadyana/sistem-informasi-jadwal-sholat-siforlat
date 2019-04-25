@@ -61,3 +61,55 @@ $theme-colors: ( "bootstrap": #007bff, "simpleform": #1976d2 );
 .pb-10-rem{
 	padding-bottom: 10rem !important;
 }
+
+.flip-clock-wrapper{
+  zoom: 0.9;
+  -moz-transform: scale(0.9);
+  @media only screen and (max-width: 1280px){
+    zoom: 0.8;
+    -moz-transform: scale(0.8);
+  }
+  @media only screen and (max-width: 1200px){
+    zoom: 0.6;
+    -moz-transform: scale(0.6);
+      .flip-clock-label{
+        font-size: 16px!important;
+      }
+  }
+  @media only screen and (max-width: 768px){
+    zoom: 0.65;
+    -moz-transform: scale(0.4);
+  }
+  @media only screen and (max-width: 767px){
+    zoom: 0.9;
+    -moz-transform: scale(1);
+  }
+  @media only screen and (max-width: 685px){
+    zoom: 0.8;
+    -moz-transform: scale(0.8);
+  }
+  @media only screen and (max-width: 550px){
+    zoom: 0.6;
+    -moz-transform: scale(0.6);
+  }
+  @media only screen and (max-width: 400px){
+    zoom: 0.5;
+    -moz-transform: scale(0.5);
+    margin-bottom: 15px;
+  }
+  @media only screen and (max-width: 411px){
+    zoom: 0.48;
+    -moz-transform: scale(0.48);
+    margin-bottom: 15px;
+  }
+  @media only screen and (max-width: 414px){
+    zoom: 0.65;
+    -moz-transform: scale(0.49);
+    margin-bottom: 15px;
+  }
+  @media only screen and (max-width: 320px){
+    zoom: 0.42;
+    -moz-transform: scale(0.4);
+    margin-bottom: 15px;
+  }
+}
