@@ -14,7 +14,7 @@
 1. `rake db:migrate`
 1. `rake db:seed`
 1. `rails s`
-1. Open browser `http://localhost:3000`
+1. `rails s` or `foreman start -f Procfile.dev`
 
 If u have any question or want to contribute please message me in [Telegram](http://t.me/muhammadyana "Telegram")
 
