@@ -28,3 +28,6 @@ Thanks
 - **ADMIN DASHBOARD (Still progress use Ruby on Rails)** [Sistem Informasi Jadwal Sholat Dashboard](https://github.com/muhammadyana/sistem-informasi-jadwal-sholat-siforlat "Sistem Informasji Jadwal Sholat Dashboard (SIFORLAT)")
 
 - **Android App (Still Progress)** [Sistem Informasji Jadwal Sholat Mobile App by Mochamad Arifin](https://github.com/flasharifin/Sistem-Informasi-Jadwal-Sholat-Mobile-App "Sistem Informasji Jadwal Sholat Mobile App by Mochamad Arifin")
+
+## Contributing
+Siforlat is an open source project and we encourage contributions, we need you to make siforlat usefull app for mosque. Contact me in [Telegram](http://t.me/muhammadyana "Telegram") or you can email me in hello@muhammayana.me
