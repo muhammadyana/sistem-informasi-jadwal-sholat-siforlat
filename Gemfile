@@ -84,7 +84,7 @@ gem 'oj', '~> 2.17.5'
 gem 'popper_js', '~> 1.14.3'
 gem 'pry-rails', '~> 0.3.6'
 
-gem 'rack-cors', '~> 0.4.0'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'recaptcha'
 gem 'rubocop-performance'
 

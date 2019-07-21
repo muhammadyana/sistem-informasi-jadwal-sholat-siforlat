@@ -544,7 +544,7 @@ DEPENDENCIES
   popper_js (~> 1.14.3)
   pry-rails (~> 0.3.6)
   puma (~> 3.11)
-  rack-cors (~> 0.4.0)
+  rack-cors
   rails (~> 5.2.1)
   rails_best_practices (~> 1.19.0)
   rb-readline
