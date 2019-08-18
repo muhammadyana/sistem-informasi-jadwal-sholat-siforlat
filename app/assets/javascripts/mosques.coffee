@@ -89,7 +89,7 @@ getMosques (mosques) ->
       position: new (google.maps.LatLng)(parseFloat(mosques[i].latitude), parseFloat(mosques[i].longitude))
       map: map
       animation: google.maps.Animation.DROP
-      title: 'Hello There !')
+      title: mosques[i].name)
     google.maps.event.addListener marker, 'click', do (marker, i) ->
       contentMosque = '<h2>' + mosques[i].name + '</h2> <p>' + mosques[i].address + '</p>' + '<img src="' + mosques[i].avatar + '" width="100">'
       ->
