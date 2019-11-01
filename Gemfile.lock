@@ -315,7 +315,7 @@ GEM
     net-ssh (5.2.0)
     netrc (0.11.0)
     nio4r (2.4.0)
-    nokogiri (1.10.3)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     nprogress-rails (0.2.0.2)
     oj (2.17.5)
