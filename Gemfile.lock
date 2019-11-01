@@ -99,6 +99,7 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.13)
+    bcrypt_pbkdf (1.0.1)
     bindex (0.8.1)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -196,6 +197,7 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
+    ed25519 (1.2.4)
     erubi (1.8.0)
     erubis (2.7.0)
     excon (0.64.0)
@@ -497,6 +499,7 @@ DEPENDENCIES
   activeadmin
   annotate
   awesome_print
+  bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   bootstrap-sass-extras
@@ -521,6 +524,7 @@ DEPENDENCIES
   devise_token_auth
   dotenv-rails
   draper (~> 3.0.0)
+  ed25519 (>= 1.2, < 2.0)
   faker (~> 1.7.3)
   figaro (~> 1.1.1)
   fog-aws (~> 2.0.0)
@@ -565,4 +569,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
