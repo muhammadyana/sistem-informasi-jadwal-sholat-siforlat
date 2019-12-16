@@ -200,7 +200,7 @@ GEM
     ed25519 (1.2.4)
     erubi (1.9.0)
     erubis (2.7.0)
-    excon (0.64.0)
+    excon (0.71.0)
     execjs (2.7.0)
     faker (1.7.3)
       i18n (~> 0.5)
