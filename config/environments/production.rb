@@ -83,12 +83,12 @@ Rails.application.configure do
   # }
 
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => 587,
+    :address        => 'email-smtp.ap-southeast-1.amazonaws.com',
+    :port           => '587',
     :authentication => :plain,
-    :user_name      => 'apikey',
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'muhammadyana.me'
+    :user_name      => ENV['AWS_SMTP_USERNAME'],
+    :password       => ENV['AWS_SMTP_PASSWORD'],
+    :domain         => 'siforlat.com'
   }
   
   # Ignore bad email addresses and do not raise email delivery errors.
