@@ -7,6 +7,7 @@ set :rvm_ruby_version,  '2.4.1'
 set :puma_threads,      [1, 16]
 set :puma_workers,      1
 set :linked_files,      %w{.env config/master.key config/database.yml}
+set :linked_files,      %w{.env config/database.yml}
 set :linked_dirs,       %w{log tmp/cache tmp/sockets tmp/export tmp/pids public/assets public/uploads}
 set :delayed_job_workers, 1
 
