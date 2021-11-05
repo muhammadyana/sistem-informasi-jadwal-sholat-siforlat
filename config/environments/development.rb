@@ -53,6 +53,15 @@ Rails.application.configure do
   config.assets.quiet = true
 
   config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :address        => 'email-smtp.ap-southeast-1.amazonaws.com',
+  #   :port           => '587',
+  #   :authentication => :plain,
+  #   :user_name      => ENV['AWS_SMTP_USERNAME'],
+  #   :password       => ENV['AWS_SMTP_PASSWORD'],
+  #   :domain         => 'siforlat.com'
+  # }
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Raises error for missing translations
